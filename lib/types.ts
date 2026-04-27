@@ -19,3 +19,16 @@ export const FOOD_TYPE_LABELS: Record<FoodType, string> = {
   treat: "Вкусняшка",
   home: "Домашняя еда",
 };
+
+export interface Purchase {
+  id: string;
+  purchased_at: string;
+  amount_grams: number;
+}
+
+export interface StockInfo {
+  total_purchased: number;
+  total_consumed: number;
+  remaining_grams: number;
+  days_left: number;
+}

@@ -2,12 +2,14 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
-import type { Feeding, Settings } from "@/lib/types";
+import type { Feeding, Settings, StockInfo } from "@/lib/types";
 import FeedingForm from "@/components/FeedingForm";
 import FeedingList from "@/components/FeedingList";
 import DryProgress from "@/components/DryProgress";
 import SettingsModal from "@/components/SettingsModal";
 import BulkFeedingModal from "@/components/BulkFeedingModal";
+import StockWidget from "@/components/StockWidget";
+import PurchaseModal from "@/components/PurchaseModal";
 import { format, addDays, subDays } from "date-fns";
 import { ru } from "date-fns/locale";
 
@@ -22,19 +24,50 @@ function formatDayLabel(d: Date) {
   return format(d, "d MMMM", { locale: ru });
 }
 
+async function registerPush(): Promise<"subscribed" | "denied" | "error"> {
+  try {
+    if (!("serviceWorker" in navigator) || !("PushManager" in window))
+      return "error";
+
+    const permission = await Notification.requestPermission();
+    if (permission !== "granted") return "denied";
+
+    const reg = await navigator.serviceWorker.ready;
+    const keyRes = await fetch("/api/push/key");
+    const { publicKey } = await keyRes.json();
+
+    const sub = await reg.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: publicKey,
+    });
+
+    await fetch("/api/push/subscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(sub.toJSON()),
+    });
+
+    return "subscribed";
+  } catch {
+    return "error";
+  }
+}
+
 export default function DashboardPage() {
   const router = useRouter();
   const [date, setDate] = useState(new Date());
   const [feedings, setFeedings] = useState<Feeding[]>([]);
   const [settings, setSettings] = useState<Settings | null>(null);
+  const [stock, setStock] = useState<StockInfo | null>(null);
   const [showForm, setShowForm] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [showBulk, setShowBulk] = useState(false);
+  const [showPurchase, setShowPurchase] = useState(false);
+  const [pushState, setPushState] = useState<"idle" | "subscribed" | "denied" | "loading">("idle");
   const [loading, setLoading] = useState(true);
 
   const loadData = useCallback(async () => {
     setLoading(true);
-    // Pass local-day boundaries as ISO strings so the API filters in user's timezone
     const start = new Date(date);
     start.setHours(0, 0, 0, 0);
     const end = new Date(date);
@@ -43,23 +76,27 @@ export default function DashboardPage() {
       start: start.toISOString(),
       end: end.toISOString(),
     });
-    const [feedingsRes, settingsRes] = await Promise.all([
+
+    const [feedingsRes, settingsRes, stockRes] = await Promise.all([
       fetch(`/api/feedings?${params}`),
       fetch("/api/settings"),
+      fetch("/api/stock"),
     ]);
 
-    if (feedingsRes.status === 401 || settingsRes.status === 401) {
+    if (feedingsRes.status === 401) {
       router.push("/login");
       return;
     }
 
-    const [feedingsData, settingsData] = await Promise.all([
+    const [feedingsData, settingsData, stockData] = await Promise.all([
       feedingsRes.json(),
       settingsRes.json(),
+      stockRes.json(),
     ]);
 
     setFeedings(feedingsData);
     setSettings(settingsData);
+    setStock(stockData);
     setLoading(false);
   }, [date, router]);
 
@@ -67,9 +104,27 @@ export default function DashboardPage() {
     loadData();
   }, [loadData]);
 
+  // Регистрируем service worker при загрузке
+  useEffect(() => {
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/sw.js").catch(() => {});
+    }
+    // Проверить текущий статус подписки
+    if ("Notification" in window && Notification.permission === "granted") {
+      setPushState("subscribed");
+    }
+  }, []);
+
   async function handleLogout() {
     await fetch("/api/auth", { method: "DELETE" });
     router.push("/login");
+  }
+
+  async function handlePushToggle() {
+    if (pushState === "subscribed") return;
+    setPushState("loading");
+    const result = await registerPush();
+    setPushState(result === "subscribed" ? "subscribed" : result === "denied" ? "denied" : "idle");
   }
 
   const dryEaten = feedings
@@ -77,6 +132,15 @@ export default function DashboardPage() {
     .reduce((sum, f) => sum + f.amount_grams, 0);
 
   const isToday = toDateStr(date) === toDateStr(new Date());
+
+  const pushIcon =
+    pushState === "subscribed" ? "🔔" : pushState === "denied" ? "🔕" : pushState === "loading" ? "⏳" : "🔔";
+  const pushTitle =
+    pushState === "subscribed"
+      ? "Уведомления включены"
+      : pushState === "denied"
+      ? "Уведомления отклонены"
+      : "Включить уведомления";
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -86,7 +150,15 @@ export default function DashboardPage() {
             <span className="text-2xl">🐱</span>
             <span className="font-semibold text-gray-800">Ритка</span>
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-1">
+            <button
+              onClick={handlePushToggle}
+              disabled={pushState === "subscribed" || pushState === "loading" || pushState === "denied"}
+              className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-xl transition-colors"
+              title={pushTitle}
+            >
+              {pushIcon}
+            </button>
             <button
               onClick={() => setShowSettings(true)}
               className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-xl transition-colors"
@@ -96,8 +168,7 @@ export default function DashboardPage() {
             </button>
             <button
               onClick={handleLogout}
-              className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-xl transition-colors text-sm"
-              title="Выйти"
+              className="px-3 py-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-xl transition-colors text-sm"
             >
               Выйти
             </button>
@@ -105,7 +176,7 @@ export default function DashboardPage() {
         </div>
       </header>
 
-      <main className="max-w-lg mx-auto px-4 py-6 space-y-5">
+      <main className="max-w-lg mx-auto px-4 py-6 space-y-4">
         {/* Навигация по датам */}
         <div className="flex items-center justify-between">
           <button
@@ -132,6 +203,11 @@ export default function DashboardPage() {
         {/* Прогресс сухого корма */}
         {settings && (
           <DryProgress eaten={dryEaten} limit={settings.dry_limit_grams} />
+        )}
+
+        {/* Запас корма */}
+        {stock && (
+          <StockWidget stock={stock} onPurchase={() => setShowPurchase(true)} />
         )}
 
         {/* Форма добавления */}
@@ -178,9 +254,7 @@ export default function DashboardPage() {
             Кормления
           </h2>
           {loading ? (
-            <p className="text-center text-gray-400 text-sm py-8">
-              Загружаем...
-            </p>
+            <p className="text-center text-gray-400 text-sm py-8">Загружаем...</p>
           ) : (
             <FeedingList feedings={feedings} onChanged={loadData} />
           )}
@@ -188,12 +262,11 @@ export default function DashboardPage() {
       </main>
 
       {showBulk && (
-        <BulkFeedingModal
-          onSaved={loadData}
-          onClose={() => setShowBulk(false)}
-        />
+        <BulkFeedingModal onSaved={loadData} onClose={() => setShowBulk(false)} />
       )}
-
+      {showPurchase && (
+        <PurchaseModal onSaved={loadData} onClose={() => setShowPurchase(false)} />
+      )}
       {showSettings && settings && (
         <SettingsModal
           settings={settings}
