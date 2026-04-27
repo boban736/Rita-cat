@@ -1,13 +1,18 @@
-import webpush from "web-push";
+import * as webpush from "web-push";
 import { supabase } from "./supabase";
 
-webpush.setVapidDetails(
-  process.env.VAPID_EMAIL!,
-  process.env.VAPID_PUBLIC_KEY!,
-  process.env.VAPID_PRIVATE_KEY!
-);
+function getWebpush() {
+  webpush.setVapidDetails(
+    process.env.VAPID_EMAIL!,
+    process.env.VAPID_PUBLIC_KEY!,
+    process.env.VAPID_PRIVATE_KEY!
+  );
+  return webpush;
+}
 
 export async function sendPushToAll(title: string, body: string) {
+  const wp = getWebpush();
+
   const { data: subs } = await supabase
     .from("push_subscriptions")
     .select("endpoint, p256dh, auth");
@@ -18,13 +23,12 @@ export async function sendPushToAll(title: string, body: string) {
 
   await Promise.allSettled(
     subs.map((sub) =>
-      webpush
+      wp
         .sendNotification(
           { endpoint: sub.endpoint, keys: { p256dh: sub.p256dh, auth: sub.auth } },
           payload
         )
-        .catch(async (err) => {
-          // Удалить протухшую подписку
+        .catch(async (err: { statusCode?: number }) => {
           if (err.statusCode === 410 || err.statusCode === 404) {
             await supabase
               .from("push_subscriptions")
