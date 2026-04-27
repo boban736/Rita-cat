@@ -10,6 +10,8 @@ import SettingsModal from "@/components/SettingsModal";
 import BulkFeedingModal from "@/components/BulkFeedingModal";
 import StockWidget from "@/components/StockWidget";
 import PurchaseModal from "@/components/PurchaseModal";
+import WaterWidget from "@/components/WaterWidget";
+import PurchaseHistory from "@/components/PurchaseHistory";
 import { format, addDays, subDays } from "date-fns";
 import { ru } from "date-fns/locale";
 
@@ -208,6 +210,17 @@ export default function DashboardPage() {
         {/* Запас корма */}
         {stock && (
           <StockWidget stock={stock} onPurchase={() => setShowPurchase(true)} />
+        )}
+
+        {/* История закупок */}
+        <PurchaseHistory />
+
+        {/* Вода */}
+        {settings && (
+          <WaterWidget
+            settings={settings}
+            onChanged={(s) => setSettings(s)}
+          />
         )}
 
         {/* Форма добавления */}

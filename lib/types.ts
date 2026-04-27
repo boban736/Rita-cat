@@ -12,6 +12,7 @@ export interface Settings {
   id: number;
   dry_limit_grams: number;
   updated_at: string;
+  water_changed_at: string | null;
 }
 
 export const FOOD_TYPE_LABELS: Record<FoodType, string> = {
