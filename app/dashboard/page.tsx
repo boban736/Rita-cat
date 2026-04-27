@@ -7,6 +7,7 @@ import FeedingForm from "@/components/FeedingForm";
 import FeedingList from "@/components/FeedingList";
 import DryProgress from "@/components/DryProgress";
 import SettingsModal from "@/components/SettingsModal";
+import BulkFeedingModal from "@/components/BulkFeedingModal";
 import { format, addDays, subDays } from "date-fns";
 import { ru } from "date-fns/locale";
 
@@ -28,6 +29,7 @@ export default function DashboardPage() {
   const [settings, setSettings] = useState<Settings | null>(null);
   const [showForm, setShowForm] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
+  const [showBulk, setShowBulk] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const loadData = useCallback(async () => {
@@ -134,7 +136,7 @@ export default function DashboardPage() {
 
         {/* Форма добавления */}
         {isToday && (
-          <div className="bg-white rounded-2xl border border-gray-100 p-5">
+          <div className="bg-white rounded-2xl border border-gray-100 p-5 space-y-3">
             <button
               onClick={() => setShowForm((v) => !v)}
               className="w-full flex items-center justify-between text-left"
@@ -148,7 +150,7 @@ export default function DashboardPage() {
             </button>
 
             {showForm && (
-              <div className="mt-4 pt-4 border-t border-gray-100">
+              <div className="pt-3 border-t border-gray-100">
                 <FeedingForm
                   onSaved={() => {
                     setShowForm(false);
@@ -156,6 +158,16 @@ export default function DashboardPage() {
                   }}
                 />
               </div>
+            )}
+
+            {!showForm && (
+              <button
+                onClick={() => setShowBulk(true)}
+                className="w-full flex items-center justify-between text-left text-gray-500 hover:text-gray-700 transition-colors"
+              >
+                <span className="text-sm">Уезжаем — насыпать заранее</span>
+                <span>🧳</span>
+              </button>
             )}
           </div>
         )}
@@ -174,6 +186,13 @@ export default function DashboardPage() {
           )}
         </div>
       </main>
+
+      {showBulk && (
+        <BulkFeedingModal
+          onSaved={loadData}
+          onClose={() => setShowBulk(false)}
+        />
+      )}
 
       {showSettings && settings && (
         <SettingsModal
