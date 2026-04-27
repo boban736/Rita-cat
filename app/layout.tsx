@@ -4,6 +4,10 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Ритка — трекер кормления",
   description: "Трекер кормления кошки",
+  icons: {
+    icon: "/favicon.jpg",
+    apple: "/apple-touch-icon.jpg",
+  },
 };
 
 export const viewport: Viewport = {
