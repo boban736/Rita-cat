@@ -14,10 +14,10 @@ export default function FeedingForm({ feeding, onSaved, onCancel }: Props) {
   const [amount, setAmount] = useState(feeding?.amount_grams.toString() ?? "");
   const [foodType, setFoodType] = useState<FoodType>(feeding?.food_type ?? "dry");
   const [fedAt, setFedAt] = useState(() => {
-    if (feeding?.fed_at) {
-      return new Date(feeding.fed_at).toISOString().slice(0, 16);
-    }
-    return new Date().toISOString().slice(0, 16);
+    const d = feeding?.fed_at ? new Date(feeding.fed_at) : new Date();
+    // datetime-local input needs local time string
+    const offset = d.getTimezoneOffset() * 60000;
+    return new Date(d.getTime() - offset).toISOString().slice(0, 16);
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
