@@ -185,7 +185,7 @@ export default function DashboardPage() {
       setJustFed(true);
       setTimeout(() => setJustFed(false), 1600);
       loadData();
-      showToast("Насыпала ✓");
+      showToast("Насыпано ✓");
     }
   }
 
@@ -301,7 +301,7 @@ export default function DashboardPage() {
               <WaterWidget settings={settings} onChanged={(s) => setSettings(s)} />
             )}
 
-            {/* Покормила card */}
+            {/* Другое количество card */}
             {isToday && (
               <div style={{
                 background: "var(--surface)",

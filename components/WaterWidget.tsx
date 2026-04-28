@@ -76,7 +76,7 @@ export default function WaterWidget({ settings, onChanged }: Props) {
             transition: "transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1)",
           }}
         >
-          {changed ? "✓ Сменила" : "Сменить"}
+          {changed ? "✓ Сменена" : "Сменить"}
         </button>
       </div>
     </div>
