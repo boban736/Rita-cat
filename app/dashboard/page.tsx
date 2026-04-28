@@ -14,6 +14,8 @@ import HistoryTab from "@/components/HistoryTab";
 import SettingsTab from "@/components/SettingsTab";
 import { format, addDays, subDays } from "date-fns";
 import { ru } from "date-fns/locale";
+import { useTweaks, TweaksPanel, TweakSection, TweakToggle, TweakSlider } from "@/components/TweaksPanel";
+import { OrbLayer } from "@/components/OrbLayer";
 
 type Tab = "today" | "history" | "settings";
 
@@ -120,6 +122,11 @@ export default function DashboardPage() {
   const [feedAmt, setFeedAmt] = useState(20);
   const [slideDir, setSlideDir] = useState<-1 | 1 | null>(null);
   const [slideKey, setSlideKey] = useState(0);
+  const [tweaks, setTweak] = useTweaks<{ orbVisible: boolean; orbSpeed: number; orbIntensity: number }>({
+    orbVisible: true,
+    orbSpeed: 1,
+    orbIntensity: 0.26,
+  });
 
   function showToast(msg: string) {
     setToast(msg);
@@ -215,7 +222,16 @@ export default function DashboardPage() {
     : undefined;
 
   return (
-    <div style={{ maxWidth: 480, margin: "0 auto", minHeight: "100svh", background: "var(--bg)", position: "relative" }}>
+    <>
+      <OrbLayer visible={tweaks.orbVisible} speed={tweaks.orbSpeed} intensity={tweaks.orbIntensity} />
+      <div style={{ maxWidth: 480, margin: "0 auto", minHeight: "100svh", background: "transparent", position: "relative", zIndex: 1 }}>
+        <TweaksPanel title="Ритка">
+          <TweakSection label="Фон">
+            <TweakToggle label="Орбы" value={tweaks.orbVisible} onChange={(v) => setTweak("orbVisible", v)} />
+            <TweakSlider label="Яркость" value={tweaks.orbIntensity} min={0.05} max={0.5} step={0.01} onChange={(v) => setTweak("orbIntensity", v)} />
+            <TweakSlider label="Скорость" value={tweaks.orbSpeed} min={0.2} max={3} step={0.1} onChange={(v) => setTweak("orbSpeed", v)} />
+          </TweakSection>
+        </TweaksPanel>
       {burst && <Burst x={burst.x} y={burst.y} />}
 
       {/* ── Header ── */}
@@ -503,6 +519,7 @@ export default function DashboardPage() {
           {toast}
         </div>
       )}
-    </div>
+      </div>
+    </>
   );
 }
