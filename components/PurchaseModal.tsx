@@ -34,16 +34,16 @@ export default function PurchaseModal({ onSaved, onClose }: Props) {
   }
 
   return (
-    <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 px-4">
-      <div className="bg-white rounded-2xl p-6 w-full max-w-sm shadow-xl">
+    <div className="fixed inset-0 bg-[var(--overlay)] flex items-center justify-center z-50 px-4">
+      <div className="bg-[var(--surface)] border border-[var(--border)] rounded-2xl p-6 w-full max-w-sm shadow-xl">
         <div className="flex items-center gap-2 mb-4">
           <span className="text-2xl">📦</span>
-          <h2 className="text-lg font-semibold text-gray-800">Закупка корма</h2>
+          <h2 className="text-lg font-semibold text-[var(--text)]">Закупка корма</h2>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-[var(--text2)] mb-1">
               Купил (г)
             </label>
             <input
@@ -52,26 +52,26 @@ export default function PurchaseModal({ onSaved, onClose }: Props) {
               onChange={(e) => setGrams(e.target.value)}
               min="1"
               placeholder="500"
-              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-300"
+              className="w-full bg-[var(--field)] border border-[var(--border)] rounded-xl px-4 py-3 text-sm text-[var(--text)] placeholder:text-[var(--text3)] focus:outline-none focus:ring-2 focus:ring-[var(--green)]"
               required
               autoFocus
             />
           </div>
 
-          {error && <p className="text-red-500 text-sm">{error}</p>}
+          {error && <p className="text-[var(--danger)] text-sm">{error}</p>}
 
           <div className="flex gap-2">
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 border border-gray-200 text-gray-600 rounded-xl py-3 text-sm font-medium hover:bg-gray-50 transition-colors"
+              className="flex-1 border border-[var(--border)] text-[var(--text2)] rounded-xl py-3 text-sm font-medium hover:bg-[var(--surface2)] transition-colors"
             >
               Отмена
             </button>
             <button
               type="submit"
               disabled={loading || !grams}
-              className="flex-1 bg-orange-400 hover:bg-orange-500 disabled:opacity-50 text-white rounded-xl py-3 text-sm font-medium transition-colors"
+              className="flex-1 bg-[var(--green)] hover:brightness-110 disabled:opacity-50 text-[var(--accent-contrast)] rounded-xl py-3 text-sm font-medium transition"
             >
               {loading ? "Сохраняем..." : "Записать"}
             </button>

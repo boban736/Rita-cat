@@ -35,36 +35,36 @@ export default function LoginPage() {
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
           <div className="text-5xl mb-3">🐱</div>
-          <h1 className="text-2xl font-semibold text-gray-800">Ритка</h1>
-          <p className="text-gray-500 text-sm mt-1">Трекер кормления</p>
+          <h1 className="text-2xl font-semibold text-[var(--text)]">Ритка</h1>
+          <p className="text-[var(--text3)] text-sm mt-1">Трекер кормления</p>
         </div>
 
         <form
           onSubmit={handleSubmit}
-          className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 space-y-4"
+          className="bg-[var(--surface)] rounded-2xl shadow-sm border border-[var(--border)] p-6 space-y-4"
         >
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-[var(--text2)] mb-1">
               Пароль
             </label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-300"
+              className="w-full bg-[var(--field)] border border-[var(--border)] rounded-xl px-4 py-3 text-sm text-[var(--text)] placeholder:text-[var(--text3)] focus:outline-none focus:ring-2 focus:ring-[var(--green)]"
               placeholder="Введи пароль"
               autoFocus
             />
           </div>
 
           {error && (
-            <p className="text-red-500 text-sm">{error}</p>
+            <p className="text-[var(--danger)] text-sm">{error}</p>
           )}
 
           <button
             type="submit"
             disabled={loading || !password}
-            className="w-full bg-orange-400 hover:bg-orange-500 disabled:opacity-50 text-white font-medium rounded-xl py-3 text-sm transition-colors"
+            className="w-full bg-[var(--green)] hover:brightness-110 disabled:opacity-50 text-[var(--accent-contrast)] font-medium rounded-xl py-3 text-sm transition"
           >
             {loading ? "Входим..." : "Войти"}
           </button>

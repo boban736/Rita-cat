@@ -342,7 +342,7 @@ export default function DashboardPage() {
                       style={{
                         width: "100%",
                         background: "var(--green)",
-                        color: "#fff",
+                        color: "var(--accent-contrast)",
                         border: "none",
                         borderRadius: 14,
                         padding: "11px 0",
@@ -441,7 +441,7 @@ export default function DashboardPage() {
             onClick={() => { setTab("today"); setFeedOpen(true); }}
             style={{
               background: "var(--green)",
-              color: "#fff",
+              color: "var(--accent-contrast)",
               border: "none",
               borderRadius: 99,
               padding: "13px 22px",
@@ -528,7 +528,7 @@ export default function DashboardPage() {
           left: "50%",
           transform: "translateX(-50%)",
           background: "oklch(0.18 0.02 30)",
-          color: "#fff",
+          color: "var(--text)",
           fontSize: 13,
           fontWeight: 700,
           padding: "10px 20px",

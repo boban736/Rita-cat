@@ -21,7 +21,7 @@ export default function StockWidget({ stock, onPurchase }: Props) {
 
   return (
     <div style={{
-      background: "linear-gradient(135deg, var(--green-l), oklch(0.92 0.08 145))",
+      background: "linear-gradient(135deg, var(--green-l), var(--surface2))",
       borderRadius: 18,
       padding: "16px 18px",
       boxShadow: "0 2px 14px var(--sh)",
@@ -35,7 +35,7 @@ export default function StockWidget({ stock, onPurchase }: Props) {
           <div style={{ fontSize: 30, fontWeight: 900, color: "var(--green)", lineHeight: 1.1, marginTop: 2 }}>
             {stockN}<span style={{ fontSize: 14 }}>г</span>
           </div>
-          <div style={{ fontSize: 12, color: "oklch(0.48 0.1 145)", marginTop: 3, fontWeight: 700 }}>
+          <div style={{ fontSize: 12, color: "var(--text2)", marginTop: 3, fontWeight: 700 }}>
             ~{days_left} дней
           </div>
         </div>
@@ -43,7 +43,7 @@ export default function StockWidget({ stock, onPurchase }: Props) {
           onClick={press}
           style={{
             background: "var(--green)",
-            color: "#fff",
+            color: "var(--accent-contrast)",
             border: "none",
             borderRadius: 14,
             padding: "11px 20px",

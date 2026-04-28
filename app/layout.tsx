@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     title: "Ритка",
-    statusBarStyle: "default",
+    statusBarStyle: "black-translucent",
   },
 };
 

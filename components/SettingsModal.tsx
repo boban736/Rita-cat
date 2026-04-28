@@ -85,13 +85,13 @@ export default function SettingsModal({ settings, onSaved, onClose }: Props) {
     "Переподписаться";
 
   return (
-    <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 px-4">
-      <div className="bg-white rounded-2xl p-6 w-full max-w-sm shadow-xl space-y-5">
-        <h2 className="text-lg font-semibold text-gray-800">Настройки</h2>
+    <div className="fixed inset-0 bg-[var(--overlay)] flex items-center justify-center z-50 px-4">
+      <div className="bg-[var(--surface)] border border-[var(--border)] rounded-2xl p-6 w-full max-w-sm shadow-xl space-y-5">
+        <h2 className="text-lg font-semibold text-[var(--text)]">Настройки</h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-[var(--text2)] mb-1">
               Лимит сухого корма в день (г)
             </label>
             <input
@@ -100,35 +100,35 @@ export default function SettingsModal({ settings, onSaved, onClose }: Props) {
               onChange={(e) => setLimit(e.target.value)}
               min="1"
               max="500"
-              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-300"
+              className="w-full bg-[var(--field)] border border-[var(--border)] rounded-xl px-4 py-3 text-sm text-[var(--text)] focus:outline-none focus:ring-2 focus:ring-[var(--green)]"
               required
               autoFocus
             />
           </div>
 
-          {error && <p className="text-red-500 text-sm">{error}</p>}
+          {error && <p className="text-[var(--danger)] text-sm">{error}</p>}
 
           <div className="flex gap-2">
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 border border-gray-200 text-gray-600 rounded-xl py-3 text-sm font-medium hover:bg-gray-50 transition-colors"
+              className="flex-1 border border-[var(--border)] text-[var(--text2)] rounded-xl py-3 text-sm font-medium hover:bg-[var(--surface2)] transition-colors"
             >
               Отмена
             </button>
             <button
               type="submit"
               disabled={loading}
-              className="flex-1 bg-orange-400 hover:bg-orange-500 disabled:opacity-50 text-white rounded-xl py-3 text-sm font-medium transition-colors"
+              className="flex-1 bg-[var(--green)] hover:brightness-110 disabled:opacity-50 text-[var(--accent-contrast)] rounded-xl py-3 text-sm font-medium transition"
             >
               {loading ? "Сохраняем..." : "Сохранить"}
             </button>
           </div>
         </form>
 
-        <div className="border-t border-gray-100 pt-4 space-y-2">
-          <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">Уведомления</p>
-          <p className="text-xs text-gray-400">
+        <div className="border-t border-[var(--border)] pt-4 space-y-2">
+          <p className="text-xs font-medium text-[var(--text3)] uppercase tracking-wide">Уведомления</p>
+          <p className="text-xs text-[var(--text3)]">
             Для работы на iPhone подпишитесь из приложения на рабочем столе, не из Safari.
           </p>
           <div className="flex gap-2">
@@ -136,7 +136,7 @@ export default function SettingsModal({ settings, onSaved, onClose }: Props) {
               type="button"
               onClick={handleTestPush}
               disabled={testState === "loading"}
-              className="flex-1 border border-gray-200 text-gray-600 rounded-xl py-2.5 text-sm font-medium hover:bg-gray-50 disabled:opacity-50 transition-colors"
+              className="flex-1 border border-[var(--border)] text-[var(--text2)] rounded-xl py-2.5 text-sm font-medium hover:bg-[var(--surface2)] disabled:opacity-50 transition-colors"
             >
               {testLabel}
             </button>
@@ -144,12 +144,12 @@ export default function SettingsModal({ settings, onSaved, onClose }: Props) {
               type="button"
               onClick={handleResubscribe}
               disabled={resubState === "loading"}
-              className="flex-1 border border-gray-200 text-gray-600 rounded-xl py-2.5 text-sm font-medium hover:bg-gray-50 disabled:opacity-50 transition-colors"
+              className="flex-1 border border-[var(--border)] text-[var(--text2)] rounded-xl py-2.5 text-sm font-medium hover:bg-[var(--surface2)] disabled:opacity-50 transition-colors"
             >
               {resubLabel}
             </button>
           </div>
-          {testError && <p className="text-xs text-red-500">{testError}</p>}
+          {testError && <p className="text-xs text-[var(--danger)]">{testError}</p>}
         </div>
       </div>
     </div>

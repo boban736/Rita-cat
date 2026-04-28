@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "Трекер кормления кошки",
     start_url: "/dashboard",
     display: "standalone",
-    background_color: "#f9fafb",
-    theme_color: "#fb923c",
+    background_color: "#181512",
+    theme_color: "#181512",
     icons: [
       {
         src: "/apple-touch-icon.jpg",

@@ -1,18 +1,38 @@
 @import "tailwindcss";
 
 :root {
-  --bg:      oklch(0.96 0.012 70);
-  --surface: #ffffff;
-  --text:    oklch(0.18 0.02 30);
-  --text2:   oklch(0.5 0.03 60);
-  --text3:   oklch(0.68 0.03 60);
-  --green:   oklch(0.52 0.18 145);
-  --green-l: oklch(0.94 0.07 145);
-  --amber:   oklch(0.72 0.17 75);
-  --blue:    oklch(0.55 0.16 240);
-  --blue-l:  oklch(0.94 0.06 240);
-  --border:  oklch(0.9 0.015 70);
-  --sh:      oklch(0.5 0.04 70 / 0.09);
+  color-scheme: dark;
+  --bg:      oklch(0.145 0.018 70);
+  --surface: oklch(0.205 0.018 70);
+  --surface2: oklch(0.255 0.02 70);
+  --field:   oklch(0.18 0.018 70);
+  --text:    oklch(0.94 0.012 78);
+  --text2:   oklch(0.78 0.018 78);
+  --text3:   oklch(0.58 0.025 78);
+  --green:   oklch(0.72 0.17 145);
+  --green-l: oklch(0.29 0.08 145);
+  --amber:   oklch(0.78 0.17 75);
+  --amber-l: oklch(0.28 0.075 75);
+  --blue:    oklch(0.74 0.15 240);
+  --blue-l:  oklch(0.29 0.08 240);
+  --danger:  oklch(0.72 0.18 25);
+  --border:  oklch(0.34 0.022 70);
+  --sh:      oklch(0.02 0.01 70 / 0.42);
+  --accent-contrast: oklch(0.12 0.018 70);
+  --overlay: oklch(0.04 0.012 70 / 0.72);
+}
+
+html {
+  background: var(--bg);
+}
+
+::selection {
+  background: oklch(0.72 0.17 145 / 0.28);
+}
+
+input,
+button {
+  color-scheme: dark;
 }
 
 @keyframes fadeUp {
@@ -44,8 +64,8 @@
   100% { transform: translateY(-70px) scale(0.6); opacity: 0; }
 }
 @keyframes pulse-ring {
-  0%, 100% { box-shadow: 0 8px 26px oklch(0.52 0.18 145 / 0.45), 0 0 0 0 oklch(0.52 0.18 145 / 0.35); }
-  50%       { box-shadow: 0 8px 26px oklch(0.52 0.18 145 / 0.45), 0 0 0 9px oklch(0.52 0.18 145 / 0); }
+  0%, 100% { box-shadow: 0 8px 26px oklch(0.72 0.17 145 / 0.32), 0 0 0 0 oklch(0.72 0.17 145 / 0.3); }
+  50%       { box-shadow: 0 8px 26px oklch(0.72 0.17 145 / 0.32), 0 0 0 9px oklch(0.72 0.17 145 / 0); }
 }
 @keyframes checkIn {
   0%   { transform: scale(0) rotate(-20deg); opacity: 0; }
