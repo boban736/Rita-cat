@@ -33,7 +33,7 @@ export default function DryProgress({ eaten, limit, justFed }: Props) {
 
   return (
     <div style={{
-      background: justFed ? "linear-gradient(135deg, #f0fdf4, #dcfce7)" : "var(--surface)",
+      background: justFed ? "linear-gradient(135deg, var(--green-l), var(--surface2))" : "var(--surface)",
       border: `1.5px solid ${justFed ? "oklch(0.7 0.15 145 / 0.4)" : "transparent"}`,
       borderRadius: 18,
       padding: "16px 18px",

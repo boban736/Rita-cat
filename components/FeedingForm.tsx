@@ -61,7 +61,7 @@ export default function FeedingForm({ feeding, onSaved, onCancel }: Props) {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="block text-sm font-medium text-[var(--text2)] mb-1">
           Тип еды
         </label>
         <div className="grid grid-cols-3 gap-2">
@@ -72,8 +72,8 @@ export default function FeedingForm({ feeding, onSaved, onCancel }: Props) {
               onClick={() => setFoodType(type)}
               className={`py-2 px-3 rounded-xl text-sm font-medium border transition-colors ${
                 foodType === type
-                  ? "bg-orange-400 border-orange-400 text-white"
-                  : "bg-white border-gray-200 text-gray-600 hover:border-orange-300"
+                  ? "bg-[var(--green)] border-[var(--green)] text-[var(--accent-contrast)]"
+                  : "bg-[var(--field)] border-[var(--border)] text-[var(--text2)] hover:border-[var(--green)]"
               }`}
             >
               {FOOD_TYPE_LABELS[type]}
@@ -83,7 +83,7 @@ export default function FeedingForm({ feeding, onSaved, onCancel }: Props) {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="block text-sm font-medium text-[var(--text2)] mb-1">
           Количество (г)
         </label>
         <input
@@ -92,7 +92,7 @@ export default function FeedingForm({ feeding, onSaved, onCancel }: Props) {
           onChange={(e) => setAmount(e.target.value)}
           min="1"
           max="500"
-          className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-300"
+          className="w-full bg-[var(--field)] border border-[var(--border)] rounded-xl px-4 py-3 text-sm text-[var(--text)] placeholder:text-[var(--text3)] focus:outline-none focus:ring-2 focus:ring-[var(--green)]"
           placeholder="30"
           required
           autoFocus={!isEdit}
@@ -105,8 +105,8 @@ export default function FeedingForm({ feeding, onSaved, onCancel }: Props) {
               onClick={() => setAmount(g.toString())}
               className={`px-3 py-1 rounded-lg text-xs font-medium border transition-colors ${
                 amount === g.toString()
-                  ? "bg-orange-400 border-orange-400 text-white"
-                  : "bg-white border-gray-200 text-gray-500 hover:border-orange-300"
+                  ? "bg-[var(--green)] border-[var(--green)] text-[var(--accent-contrast)]"
+                  : "bg-[var(--field)] border-[var(--border)] text-[var(--text3)] hover:border-[var(--green)]"
               }`}
             >
               {g}г
@@ -116,26 +116,26 @@ export default function FeedingForm({ feeding, onSaved, onCancel }: Props) {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="block text-sm font-medium text-[var(--text2)] mb-1">
           Время
         </label>
         <input
           type="datetime-local"
           value={fedAt}
           onChange={(e) => setFedAt(e.target.value)}
-          className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-300"
+          className="w-full bg-[var(--field)] border border-[var(--border)] rounded-xl px-4 py-3 text-sm text-[var(--text)] focus:outline-none focus:ring-2 focus:ring-[var(--green)]"
           required
         />
       </div>
 
-      {error && <p className="text-red-500 text-sm">{error}</p>}
+      {error && <p className="text-[var(--danger)] text-sm">{error}</p>}
 
       <div className="flex gap-2 pt-1">
         {onCancel && (
           <button
             type="button"
             onClick={onCancel}
-            className="flex-1 border border-gray-200 text-gray-600 rounded-xl py-3 text-sm font-medium hover:bg-gray-50 transition-colors"
+            className="flex-1 border border-[var(--border)] text-[var(--text2)] rounded-xl py-3 text-sm font-medium hover:bg-[var(--surface2)] transition-colors"
           >
             Отмена
           </button>
@@ -143,7 +143,7 @@ export default function FeedingForm({ feeding, onSaved, onCancel }: Props) {
         <button
           type="submit"
           disabled={loading || !amount}
-          className="flex-1 bg-orange-400 hover:bg-orange-500 disabled:opacity-50 text-white rounded-xl py-3 text-sm font-medium transition-colors"
+          className="flex-1 bg-[var(--green)] hover:brightness-110 disabled:opacity-50 text-[var(--accent-contrast)] rounded-xl py-3 text-sm font-medium transition"
         >
           {loading ? "Сохраняем..." : isEdit ? "Сохранить" : "Добавить"}
         </button>
