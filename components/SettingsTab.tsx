@@ -9,10 +9,34 @@ interface Props {
   onSaved: (s: Settings) => void;
 }
 
+const BIRTHDATE = new Date(2025, 7, 25); // 25 августа 2025
+
+function calcAge(birth: Date): string {
+  const now = new Date();
+  let years = now.getFullYear() - birth.getFullYear();
+  let months = now.getMonth() - birth.getMonth();
+  if (now.getDate() < birth.getDate()) months--;
+  if (months < 0) { years--; months += 12; }
+
+  if (years === 0) return plural(months, "месяц", "месяца", "месяцев");
+  const y = plural(years, "год", "года", "лет");
+  if (months === 0) return y;
+  return `${y} ${plural(months, "месяц", "месяца", "месяцев")}`;
+}
+
+function plural(n: number, one: string, few: string, many: string): string {
+  const mod10 = n % 10, mod100 = n % 100;
+  if (mod100 >= 11 && mod100 <= 19) return `${n} ${many}`;
+  if (mod10 === 1) return `${n} ${one}`;
+  if (mod10 >= 2 && mod10 <= 4) return `${n} ${few}`;
+  return `${n} ${many}`;
+}
+
 const CAT_ROWS = [
   { label: "Имя", value: "Ритка" },
   { label: "Порода", value: "Беспородная 🐱" },
-  { label: "Возраст", value: "3 года" },
+  { label: "День рождения", value: "25 августа 2025" },
+  { label: "Возраст", value: calcAge(BIRTHDATE) },
 ];
 
 function Row({ label, value }: { label: string; value: string }) {
