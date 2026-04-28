@@ -33,8 +33,11 @@ export default function WaterWidget({ settings, onChanged }: Props) {
   return (
     <div style={{
       background: changed
-        ? "linear-gradient(135deg, var(--blue-l), var(--surface2))"
+        ? "linear-gradient(135deg, var(--blue-bg), oklch(0.22 0.08 240))"
         : "var(--surface)",
+      border: changed
+        ? "1px solid oklch(0.35 0.12 240 / 0.4)"
+        : "1px solid transparent",
       borderRadius: 18,
       padding: "16px 18px",
       boxShadow: "0 2px 14px var(--sh)",
@@ -61,7 +64,7 @@ export default function WaterWidget({ settings, onChanged }: Props) {
         <button
           onClick={handleChange}
           style={{
-            background: changed ? "var(--blue-l)" : "var(--blue)",
+            background: changed ? "oklch(0.25 0.08 240)" : "var(--blue)",
             color: changed ? "var(--blue)" : "var(--accent-contrast)",
             border: "none",
             borderRadius: 14,
