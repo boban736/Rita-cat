@@ -18,7 +18,12 @@ export async function POST(request: Request) {
     .from("push_subscriptions")
     .select("*", { count: "exact", head: true });
 
-  await sendPushToAll(title, text);
+  try {
+    await sendPushToAll(title, text);
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : "push send failed";
+    return NextResponse.json({ error: msg }, { status: 500 });
+  }
 
   return NextResponse.json({ sent: count ?? 0 });
 }
