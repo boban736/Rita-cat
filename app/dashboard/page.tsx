@@ -61,8 +61,8 @@ function NavArrow({ children, onClick, dim }: {
       onTouchStart={() => { if (!dim) setPr(true); }}
       onTouchEnd={() => setPr(false)}
       style={{
-        background: "var(--surface)",
-        border: "1.5px solid var(--border)",
+        background: "var(--surface2)",
+        border: "1px solid var(--border)",
         borderRadius: 13,
         width: 42,
         height: 42,
@@ -71,8 +71,7 @@ function NavArrow({ children, onClick, dim }: {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        boxShadow: "0 1px 6px var(--sh)",
-        opacity: dim ? 0.38 : 1,
+        opacity: dim ? 0.35 : 1,
         transform: pr ? "scale(0.86)" : "scale(1)",
         transition: "transform 0.12s",
       }}
@@ -84,7 +83,7 @@ function NavArrow({ children, onClick, dim }: {
 
 function Stepper({ value, onChange }: { value: number; onChange: (v: number) => void }) {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 6, background: "var(--bg)", borderRadius: 14, padding: "7px 12px" }}>
+    <div style={{ display: "flex", alignItems: "center", gap: 6, background: "var(--bg2)", borderRadius: 14, padding: "7px 12px" }}>
       <button
         onClick={() => onChange(Math.max(5, value - 5))}
         style={{ background: "none", border: "none", cursor: "pointer", fontWeight: 900, fontSize: 22, color: "var(--green)", lineHeight: 1, width: 28, height: 28, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "inherit" }}
@@ -174,21 +173,29 @@ export default function DashboardPage() {
     router.push("/login");
   }
 
-  async function handleFeed(e: React.MouseEvent) {
+  async function doFeed(amt: number, e: React.MouseEvent) {
     triggerBurst(e);
     const now = new Date();
     const res = await fetch("/api/feedings", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ amount_grams: feedAmt, food_type: "dry", fed_at: now.toISOString() }),
+      body: JSON.stringify({ amount_grams: amt, food_type: "dry", fed_at: now.toISOString() }),
     });
     if (res.ok) {
-      setFeedOpen(false);
       setJustFed(true);
       setTimeout(() => setJustFed(false), 1600);
       loadData();
       showToast("Насыпала ✓");
     }
+  }
+
+  async function handleFeed(e: React.MouseEvent) {
+    setFeedOpen(false);
+    await doFeed(feedAmt, e);
+  }
+
+  async function handleQuickFeed(amt: number, e: React.MouseEvent) {
+    await doFeed(amt, e);
   }
 
   function navDay(d: -1 | 1) {
@@ -275,7 +282,7 @@ export default function DashboardPage() {
           }}>
             {/* Food progress */}
             {settings && (
-              <DryProgress eaten={dryEaten} limit={settings.dry_limit_grams} justFed={justFed} />
+              <DryProgress eaten={dryEaten} limit={settings.dry_limit_grams} justFed={justFed} onQuickFeed={handleQuickFeed} />
             )}
 
             {/* Stock */}
@@ -304,11 +311,11 @@ export default function DashboardPage() {
                 animation: "fadeUp 0.45s cubic-bezier(0.34, 1.2, 0.64, 1) 0.25s both",
               }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <span style={{ fontWeight: 800, fontSize: 15.5 }}>Покормила</span>
+                  <span style={{ fontWeight: 800, fontSize: 15.5 }}>Другое количество</span>
                   <button
                     onClick={() => setFeedOpen((v) => !v)}
                     style={{
-                      background: feedOpen ? "var(--green-l)" : "var(--bg)",
+                      background: feedOpen ? "var(--green-bg)" : "var(--bg2)",
                       border: "none",
                       borderRadius: 12,
                       width: 38,
@@ -371,7 +378,7 @@ export default function DashboardPage() {
                       justifyContent: "space-between",
                       alignItems: "center",
                       padding: "10px 12px",
-                      background: "var(--bg)",
+                      background: "var(--bg2)",
                       borderRadius: 12,
                       fontSize: 13,
                       fontWeight: 700,
@@ -398,20 +405,6 @@ export default function DashboardPage() {
                 <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: 1.3, textTransform: "uppercase", color: "var(--text3)" }}>
                   Кормления · {feedings.length}
                 </div>
-                {isToday && (
-                  <button
-                    onClick={() => setFeedOpen(true)}
-                    style={{
-                      background: "none",
-                      border: "none",
-                      cursor: "pointer",
-                      color: "var(--green)",
-                      fontFamily: "inherit",
-                      fontWeight: 800,
-                      fontSize: 13,
-                    }}
-                  >+ Добавить</button>
-                )}
               </div>
               {loading ? (
                 <div style={{ textAlign: "center", color: "var(--text3)", fontSize: 13, padding: "24px 0" }}>
@@ -427,38 +420,6 @@ export default function DashboardPage() {
 
       {tab === "history" && <HistoryTab />}
       {tab === "settings" && settings && <SettingsTab settings={settings} onSaved={(s) => setSettings(s)} />}
-
-      {/* ── FAB ── */}
-      {tab === "today" && (
-        <div style={{
-          position: "fixed",
-          bottom: "calc(76px + env(safe-area-inset-bottom, 0px))",
-          right: 18,
-          zIndex: 45,
-          animation: "fadeUp 0.5s 0.5s both",
-        }}>
-          <button
-            onClick={() => { setTab("today"); setFeedOpen(true); }}
-            style={{
-              background: "var(--green)",
-              color: "var(--accent-contrast)",
-              border: "none",
-              borderRadius: 99,
-              padding: "13px 22px",
-              fontFamily: "inherit",
-              fontWeight: 800,
-              fontSize: 14.5,
-              cursor: "pointer",
-              animation: "pulse-ring 2.8s ease-in-out infinite",
-              transition: "transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1)",
-            }}
-            onMouseDown={(e) => (e.currentTarget.style.animation = "none")}
-            onMouseUp={(e) => (e.currentTarget.style.animation = "pulse-ring 2.8s ease-in-out infinite")}
-          >
-            🐾 Покормить
-          </button>
-        </div>
-      )}
 
       {/* ── Bottom tab bar ── */}
       <nav style={{

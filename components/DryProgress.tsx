@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useCountUp } from "@/lib/hooks";
 
 interface Props {
   eaten: number;
   limit: number;
   justFed?: boolean;
+  onQuickFeed?: (amount: number, e: React.MouseEvent) => void;
 }
 
 function Lbl({ children }: { children: React.ReactNode }) {
@@ -17,7 +18,65 @@ function Lbl({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function DryProgress({ eaten, limit, justFed }: Props) {
+function QuickBtn({ label, onClick }: { label: string; onClick: (e: React.MouseEvent) => void }) {
+  const [anim, setAnim] = useState(false);
+  const [rip, setRip] = useState<{ x: number; y: number } | null>(null);
+  const ref = useRef<HTMLButtonElement>(null);
+
+  function go(e: React.MouseEvent) {
+    const r = ref.current!.getBoundingClientRect();
+    setRip({ x: e.clientX - r.left, y: e.clientY - r.top });
+    setTimeout(() => setRip(null), 700);
+    setAnim(true);
+    setTimeout(() => setAnim(false), 400);
+    onClick(e);
+  }
+
+  return (
+    <button
+      ref={ref}
+      onClick={go}
+      style={{
+        flex: 1,
+        background: "var(--green-bg)",
+        color: "var(--green)",
+        border: "none",
+        borderRadius: 99,
+        padding: "10px 0",
+        fontFamily: "inherit",
+        fontWeight: 900,
+        fontSize: 15,
+        cursor: "pointer",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 5,
+        position: "relative",
+        overflow: "hidden",
+        animation: anim ? "quickPop 0.35s ease both" : undefined,
+      }}
+    >
+      {rip && (
+        <span style={{
+          position: "absolute",
+          left: rip.x,
+          top: rip.y,
+          width: 8,
+          height: 8,
+          marginLeft: -4,
+          marginTop: -4,
+          background: "oklch(0.68 0.20 145 / 0.4)",
+          borderRadius: "50%",
+          animation: "ripple 0.6s ease-out forwards",
+          pointerEvents: "none",
+        }} />
+      )}
+      🐾 {label}
+    </button>
+  );
+}
+
+export default function DryProgress({ eaten, limit, justFed, onQuickFeed }: Props) {
   const pct = Math.min((eaten / limit) * 100, 100);
   const remaining = Math.max(limit - eaten, 0);
   const barColor = pct >= 60 ? "var(--amber)" : "var(--green)";
@@ -33,12 +92,16 @@ export default function DryProgress({ eaten, limit, justFed }: Props) {
 
   return (
     <div style={{
-      background: justFed ? "linear-gradient(135deg, var(--green-l), var(--surface2))" : "var(--surface)",
-      border: `1.5px solid ${justFed ? "oklch(0.7 0.15 145 / 0.4)" : "transparent"}`,
+      background: justFed
+        ? "linear-gradient(135deg, oklch(0.22 0.09 145), oklch(0.20 0.07 145))"
+        : "var(--surface)",
+      border: justFed
+        ? "1.5px solid oklch(0.45 0.18 145 / 0.5)"
+        : "1.5px solid transparent",
       borderRadius: 18,
       padding: "16px 18px",
       boxShadow: "0 2px 14px var(--sh)",
-      transition: "background 0.7s ease",
+      transition: "background 0.6s ease, border-color 0.6s ease",
       animation: "fadeUp 0.45s cubic-bezier(0.34, 1.2, 0.64, 1) 0.04s both",
     }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
@@ -72,7 +135,7 @@ export default function DryProgress({ eaten, limit, justFed }: Props) {
             <div style={{
               position: "absolute",
               inset: 0,
-              background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent)",
+              background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent)",
               backgroundSize: "200%",
               animation: "shimmer 1.8s ease-in-out 1s 1",
             }} />
@@ -90,6 +153,18 @@ export default function DryProgress({ eaten, limit, justFed }: Props) {
           animation: "checkIn 0.5s ease both",
         }}>
           ✅ Дневная норма выполнена!
+        </div>
+      )}
+
+      {onQuickFeed && (
+        <div style={{ display: "flex", gap: 8, marginTop: 14 }}>
+          {[20, 40, 60].map((amt) => (
+            <QuickBtn
+              key={amt}
+              label={`+${amt}г`}
+              onClick={(e) => onQuickFeed(amt, e)}
+            />
+          ))}
         </div>
       )}
     </div>
