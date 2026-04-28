@@ -26,6 +26,24 @@ APP_PASSWORD=твой_пароль
 
 ---
 
+## cron-job.org
+
+Создай 2 задачи на [cron-job.org](https://cron-job.org):
+
+**Проверка кормления** (запускать в 11:00, 16:00, 21:00 МСК = 08:00, 13:00, 18:00 UTC):
+- URL: `https://твой-домен.vercel.app/api/cron/check-feeding`
+- Method: `GET`
+- Header: `x-cron-secret: <значение CRON_SECRET из .env>`
+- Schedule: `0 8,13,18 * * *`
+
+**Проверка запасов** (раз в день, 12:00 МСК = 09:00 UTC):
+- URL: `https://твой-домен.vercel.app/api/cron/check-stock`
+- Method: `GET`
+- Header: `x-cron-secret: <значение CRON_SECRET из .env>`
+- Schedule: `0 9 * * *`
+
+---
+
 ## iPhone Shortcuts
 
 Создай Shortcut с шагами:

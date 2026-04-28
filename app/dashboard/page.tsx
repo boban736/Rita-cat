@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import type { Feeding, Settings, StockInfo } from "@/lib/types";
+import { registerPush } from "@/lib/push";
 import FeedingForm from "@/components/FeedingForm";
 import FeedingList from "@/components/FeedingList";
 import DryProgress from "@/components/DryProgress";
@@ -26,35 +27,6 @@ function formatDayLabel(d: Date) {
   return format(d, "d MMMM", { locale: ru });
 }
 
-async function registerPush(): Promise<"subscribed" | "denied" | "error"> {
-  try {
-    if (!("serviceWorker" in navigator) || !("PushManager" in window))
-      return "error";
-
-    const permission = await Notification.requestPermission();
-    if (permission !== "granted") return "denied";
-
-    const reg = await navigator.serviceWorker.ready;
-    const keyRes = await fetch("/api/push/key");
-    const { publicKey } = await keyRes.json();
-
-    const sub = await reg.pushManager.subscribe({
-      userVisibleOnly: true,
-      applicationServerKey: publicKey,
-    });
-
-    await fetch("/api/push/subscribe", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(sub.toJSON()),
-    });
-
-    return "subscribed";
-  } catch {
-    return "error";
-  }
-}
-
 export default function DashboardPage() {
   const router = useRouter();
   const [date, setDate] = useState(new Date());
@@ -66,7 +38,14 @@ export default function DashboardPage() {
   const [showBulk, setShowBulk] = useState(false);
   const [showPurchase, setShowPurchase] = useState(false);
   const [pushState, setPushState] = useState<"idle" | "subscribed" | "denied" | "loading">("idle");
+  const [pushWarning, setPushWarning] = useState(false);
+  const [toast, setToast] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+
+  function showToast(msg: string) {
+    setToast(msg);
+    setTimeout(() => setToast(null), 2000);
+  }
 
   const loadData = useCallback(async () => {
     setLoading(true);
@@ -124,6 +103,17 @@ export default function DashboardPage() {
 
   async function handlePushToggle() {
     if (pushState === "subscribed") return;
+
+    const isStandalone =
+      window.matchMedia("(display-mode: standalone)").matches ||
+      (navigator as { standalone?: boolean }).standalone === true;
+
+    if (!isStandalone) {
+      setPushWarning(true);
+      return;
+    }
+
+    setPushWarning(false);
     setPushState("loading");
     const result = await registerPush();
     setPushState(result === "subscribed" ? "subscribed" : result === "denied" ? "denied" : "idle");
@@ -177,6 +167,22 @@ export default function DashboardPage() {
           </div>
         </div>
       </header>
+
+      {pushWarning && (
+        <div className="max-w-lg mx-auto px-4 pt-3">
+          <div className="bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 flex items-start justify-between gap-3">
+            <p className="text-xs text-amber-700">
+              Откройте приложение с рабочего стола (не через Safari) и нажмите 🔔 снова.
+            </p>
+            <button
+              onClick={() => setPushWarning(false)}
+              className="text-amber-400 hover:text-amber-600 shrink-0 text-sm"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
 
       <main className="max-w-lg mx-auto px-4 py-6 space-y-4">
         {/* Навигация по датам */}
@@ -244,6 +250,7 @@ export default function DashboardPage() {
                   onSaved={() => {
                     setShowForm(false);
                     loadData();
+                    showToast("Сохранено ✓");
                   }}
                 />
               </div>
@@ -269,7 +276,11 @@ export default function DashboardPage() {
           {loading ? (
             <p className="text-center text-gray-400 text-sm py-8">Загружаем...</p>
           ) : (
-            <FeedingList feedings={feedings} onChanged={loadData} />
+            <FeedingList
+              feedings={feedings}
+              onChanged={loadData}
+              onFeedingSaved={() => showToast("Сохранено ✓")}
+            />
           )}
         </div>
       </main>
@@ -286,6 +297,12 @@ export default function DashboardPage() {
           onSaved={(s) => setSettings(s)}
           onClose={() => setShowSettings(false)}
         />
+      )}
+
+      {toast && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-sm font-medium px-5 py-2.5 rounded-2xl shadow-lg pointer-events-none z-50">
+          {toast}
+        </div>
       )}
     </div>
   );

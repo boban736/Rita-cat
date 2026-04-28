@@ -8,6 +8,7 @@ import FeedingForm from "./FeedingForm";
 interface Props {
   feedings: Feeding[];
   onChanged: () => void;
+  onFeedingSaved?: () => void;
 }
 
 function formatTime(isoString: string) {
@@ -18,7 +19,7 @@ function formatTime(isoString: string) {
   });
 }
 
-export default function FeedingList({ feedings, onChanged }: Props) {
+export default function FeedingList({ feedings, onChanged, onFeedingSaved }: Props) {
   const [editingId, setEditingId] = useState<string | null>(null);
 
   async function handleDelete(id: string) {
@@ -49,6 +50,7 @@ export default function FeedingList({ feedings, onChanged }: Props) {
               onSaved={() => {
                 setEditingId(null);
                 onChanged();
+                onFeedingSaved?.();
               }}
               onCancel={() => setEditingId(null)}
             />

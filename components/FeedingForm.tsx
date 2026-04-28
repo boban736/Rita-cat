@@ -4,6 +4,12 @@ import { useState } from "react";
 import type { Feeding, FoodType } from "@/lib/types";
 import { FOOD_TYPE_LABELS } from "@/lib/types";
 
+const PRESETS: Record<FoodType, number[]> = {
+  dry: [10, 20, 30, 40],
+  treat: [5, 10, 15],
+  home: [50, 100, 150],
+};
+
 interface Props {
   feeding?: Feeding;
   onSaved: () => void;
@@ -91,6 +97,22 @@ export default function FeedingForm({ feeding, onSaved, onCancel }: Props) {
           required
           autoFocus={!isEdit}
         />
+        <div className="flex gap-2 mt-2 flex-wrap">
+          {PRESETS[foodType].map((g) => (
+            <button
+              key={g}
+              type="button"
+              onClick={() => setAmount(g.toString())}
+              className={`px-3 py-1 rounded-lg text-xs font-medium border transition-colors ${
+                amount === g.toString()
+                  ? "bg-orange-400 border-orange-400 text-white"
+                  : "bg-white border-gray-200 text-gray-500 hover:border-orange-300"
+              }`}
+            >
+              {g}г
+            </button>
+          ))}
+        </div>
       </div>
 
       <div>
