@@ -1,1 +1,54 @@
 @import "tailwindcss";
+
+:root {
+  --bg:      oklch(0.96 0.012 70);
+  --surface: #ffffff;
+  --text:    oklch(0.18 0.02 30);
+  --text2:   oklch(0.5 0.03 60);
+  --text3:   oklch(0.68 0.03 60);
+  --green:   oklch(0.52 0.18 145);
+  --green-l: oklch(0.94 0.07 145);
+  --amber:   oklch(0.72 0.17 75);
+  --blue:    oklch(0.55 0.16 240);
+  --blue-l:  oklch(0.94 0.06 240);
+  --border:  oklch(0.9 0.015 70);
+  --sh:      oklch(0.5 0.04 70 / 0.09);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slRight {
+  from { opacity: 0; transform: translateX(22px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes slLeft {
+  from { opacity: 0; transform: translateX(-22px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+@keyframes ripple {
+  from { transform: scale(0); opacity: 0.4; }
+  to   { transform: scale(5); opacity: 0; }
+}
+@keyframes floatUp {
+  0%   { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-70px) scale(0.6); opacity: 0; }
+}
+@keyframes pulse-ring {
+  0%, 100% { box-shadow: 0 8px 26px oklch(0.52 0.18 145 / 0.45), 0 0 0 0 oklch(0.52 0.18 145 / 0.35); }
+  50%       { box-shadow: 0 8px 26px oklch(0.52 0.18 145 / 0.45), 0 0 0 9px oklch(0.52 0.18 145 / 0); }
+}
+@keyframes checkIn {
+  0%   { transform: scale(0) rotate(-20deg); opacity: 0; }
+  60%  { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}

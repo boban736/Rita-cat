@@ -6,7 +6,7 @@ import type { Purchase } from "@/lib/types";
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("ru-RU", {
     day: "numeric",
-    month: "long",
+    month: "short",
     timeZone: "Europe/Moscow",
   });
 }
@@ -16,44 +16,81 @@ export default function PurchaseHistory() {
   const [purchases, setPurchases] = useState<Purchase[]>([]);
   const [loaded, setLoaded] = useState(false);
 
-  async function load() {
-    if (loaded) return;
-    const res = await fetch("/api/purchases");
-    if (res.ok) setPurchases(await res.json());
-    setLoaded(true);
-  }
-
   useEffect(() => {
-    if (open) load();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [open]);
+    if (!open || loaded) return;
+    fetch("/api/purchases")
+      .then((r) => r.json())
+      .then((data: Purchase[]) => { setPurchases(data); setLoaded(true); });
+  }, [open, loaded]);
 
   return (
-    <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
+    <div style={{
+      background: "var(--surface)",
+      borderRadius: 18,
+      boxShadow: "0 2px 14px var(--sh)",
+      overflow: "hidden",
+      animation: "fadeUp 0.45s cubic-bezier(0.34, 1.2, 0.64, 1) 0.15s both",
+    }}>
       <button
         onClick={() => setOpen((v) => !v)}
-        className="w-full flex items-center justify-between px-5 py-4 text-left"
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          width: "100%",
+          background: "none",
+          border: "none",
+          cursor: "pointer",
+          fontFamily: "inherit",
+          fontWeight: 800,
+          fontSize: 15.5,
+          color: "var(--text)",
+          padding: "16px 18px",
+        }}
       >
-        <span className="text-sm font-medium text-gray-600">История закупок</span>
-        <span className="text-gray-400 text-sm">{open ? "▲" : "▼"}</span>
+        История закупок
+        <span style={{
+          transform: open ? "rotate(180deg)" : "rotate(0)",
+          transition: "transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)",
+          color: "var(--text3)",
+          fontSize: 11,
+          display: "inline-block",
+        }}>▼</span>
       </button>
 
-      {open && (
-        <div className="border-t border-gray-100">
-          {purchases.length === 0 ? (
-            <p className="text-center text-gray-400 text-sm py-6">Закупок нет</p>
+      <div style={{
+        overflow: "hidden",
+        maxHeight: open ? 200 : 0,
+        transition: "max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+      }}>
+        <div style={{ padding: "0 18px 12px" }}>
+          {!loaded ? (
+            <div style={{ textAlign: "center", fontSize: 13, color: "var(--text3)", padding: "12px 0" }}>
+              Загружаем...
+            </div>
+          ) : purchases.length === 0 ? (
+            <div style={{ textAlign: "center", fontSize: 13, color: "var(--text3)", padding: "12px 0" }}>
+              Закупок нет
+            </div>
           ) : (
-            <ul className="divide-y divide-gray-50">
-              {purchases.map((p) => (
-                <li key={p.id} className="flex justify-between px-5 py-3 text-sm">
-                  <span className="text-gray-500">{formatDate(p.purchased_at)}</span>
-                  <span className="font-medium text-gray-800">{p.amount_grams} г</span>
-                </li>
-              ))}
-            </ul>
+            purchases.map((p, i) => (
+              <div key={p.id} style={{
+                display: "grid",
+                gridTemplateColumns: "1fr auto",
+                gap: 14,
+                fontSize: 13,
+                color: "var(--text2)",
+                padding: "7px 0",
+                borderTop: i === 0 ? "1px solid var(--border)" : "1px solid var(--border)",
+                fontWeight: 600,
+              }}>
+                <span>{formatDate(p.purchased_at)}</span>
+                <span>{p.amount_grams} г</span>
+              </div>
+            ))
           )}
         </div>
-      )}
+      </div>
     </div>
   );
 }
