@@ -4,9 +4,15 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Ритка — трекер кормления",
   description: "Трекер кормления кошки",
+  manifest: "/manifest.webmanifest",
   icons: {
     icon: "/favicon.jpg",
     apple: "/apple-touch-icon.jpg",
+  },
+  appleWebApp: {
+    capable: true,
+    title: "Ритка",
+    statusBarStyle: "default",
   },
 };
 

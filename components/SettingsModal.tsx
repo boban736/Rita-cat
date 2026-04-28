@@ -16,7 +16,8 @@ export default function SettingsModal({ settings, onSaved, onClose }: Props) {
   const [error, setError] = useState("");
 
   const [testState, setTestState] = useState<"idle" | "loading" | "sent" | "none" | "error">("idle");
-  const [resubState, setResubState] = useState<"idle" | "loading" | "done" | "error">("idle");
+  const [testError, setTestError] = useState("");
+  const [resubState, setResubState] = useState<"idle" | "loading" | "done" | "denied" | "error">("idle");
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -43,11 +44,18 @@ export default function SettingsModal({ settings, onSaved, onClose }: Props) {
 
   async function handleTestPush() {
     setTestState("loading");
+    setTestError("");
     try {
       const res = await fetch("/api/push/test", { method: "POST" });
       const data = await res.json();
+      if (!res.ok) {
+        setTestError(data.error ?? `HTTP ${res.status}`);
+        setTestState("error");
+        return;
+      }
       setTestState(data.sent === 0 ? "none" : "sent");
-    } catch {
+    } catch (e) {
+      setTestError(e instanceof Error ? e.message : "Неизвестная ошибка");
       setTestState("error");
     }
   }
@@ -55,7 +63,11 @@ export default function SettingsModal({ settings, onSaved, onClose }: Props) {
   async function handleResubscribe() {
     setResubState("loading");
     const result = await resubscribePush();
-    setResubState(result === "subscribed" ? "done" : "error");
+    setResubState(
+      result === "subscribed" ? "done" :
+      result === "denied" ? "denied" :
+      "error"
+    );
   }
 
   const testLabel =
@@ -68,6 +80,7 @@ export default function SettingsModal({ settings, onSaved, onClose }: Props) {
   const resubLabel =
     resubState === "loading" ? "Подписываемся..." :
     resubState === "done" ? "Подписано ✓" :
+    resubState === "denied" ? "Нет разрешения" :
     resubState === "error" ? "Ошибка" :
     "Переподписаться";
 
@@ -136,6 +149,7 @@ export default function SettingsModal({ settings, onSaved, onClose }: Props) {
               {resubLabel}
             </button>
           </div>
+          {testError && <p className="text-xs text-red-500">{testError}</p>}
         </div>
       </div>
     </div>
