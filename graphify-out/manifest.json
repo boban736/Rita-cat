@@ -1,0 +1,210 @@
+{
+  "/Users/bogdanstan/dev/cat/Rita-cat/middleware.ts": {
+    "mtime": 1777373194.715861,
+    "hash": "af0a627fce0bd4953e00dff9c2dbd18f"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/postcss.config.mjs": {
+    "mtime": 1777373194.7161474,
+    "hash": "239f3ebf717465dc636818a1a619398d"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/next-env.d.ts": {
+    "mtime": 1777374897.51472,
+    "hash": "a64595e6014adce3002d3bf762d2dbeb"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/next.config.ts": {
+    "mtime": 1777373194.7159703,
+    "hash": "daad32b4de0b92afe04301ebf0a6cc76"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/app/layout.tsx": {
+    "mtime": 1777403925.8053796,
+    "hash": "16457d9f91e910dbcc983c13fe34beb8"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/app/manifest.ts": {
+    "mtime": 1777403925.8074,
+    "hash": "e295488554fcf75a9bdc123446e167c0"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/app/page.tsx": {
+    "mtime": 1777373194.7143207,
+    "hash": "cfd4842cc6996290e7d8ef4b709fcecd"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/app/dashboard/page.tsx": {
+    "mtime": 1777408452.9390259,
+    "hash": "4d137c8c0f559d925af36be406d868d1"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/app/api/settings/route.ts": {
+    "mtime": 1777373194.712928,
+    "hash": "4b479950cd5a0b1cad69c8620a75ade6"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/app/api/purchases/route.ts": {
+    "mtime": 1777373194.7123747,
+    "hash": "07605c99b2355fd22a5871392a2d7379"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/app/api/feedings/route.ts": {
+    "mtime": 1777373194.7121959,
+    "hash": "a4b63bd29c18dd157f2bcc23bf207789"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/app/api/feedings/bulk/route.ts": {
+    "mtime": 1777373194.7120862,
+    "hash": "463b3543dee920ccf1ac31ec7881ec3b"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/app/api/feedings/[id]/route.ts": {
+    "mtime": 1777373194.7119303,
+    "hash": "556452dfe629e22437ab369969c969b7"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/app/api/water/route.ts": {
+    "mtime": 1777373194.7134297,
+    "hash": "5a6269da557d629465ddef96edee408f"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/app/api/auth/route.ts": {
+    "mtime": 1777373194.7112331,
+    "hash": "d406b63e20510e0a7f927bc1123c7840"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/app/api/status/route.ts": {
+    "mtime": 1777373194.7130988,
+    "hash": "40baf1e95b37557e33333fe45b29a0d2"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/app/api/push/test/route.ts": {
+    "mtime": 1777375669.0844123,
+    "hash": "005a974706d4320871bdf3f6a680166c"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/app/api/push/key/route.ts": {
+    "mtime": 1777373194.7125895,
+    "hash": "4e2c455d9bb5eff2015943e789cb99f9"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/app/api/push/subscribe/route.ts": {
+    "mtime": 1777373194.7127576,
+    "hash": "81f46360a184a3ae69e322005b264247"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/app/api/stock/route.ts": {
+    "mtime": 1777373194.7132668,
+    "hash": "bdd154d11ba702b9ea80da47ea0581db"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/app/api/cron/check-stock/route.ts": {
+    "mtime": 1777373194.7116692,
+    "hash": "7e097085577c63fc0318296491b09a38"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/app/api/cron/check-feeding/route.ts": {
+    "mtime": 1777373194.7114818,
+    "hash": "4fe45de2d6d3f0fed8d071a9ea9d1e04"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/app/login/page.tsx": {
+    "mtime": 1777403925.8067296,
+    "hash": "9b2fe1bc2f161a6f4012e2682d030b21"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/supabase/purchases_schema.sql": {
+    "mtime": 1777373194.7167547,
+    "hash": "53866ec17116795d62fe33e23b05de38"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/supabase/schema.sql": {
+    "mtime": 1777373194.7168567,
+    "hash": "9a816eeb8002ef481d75b77c8f3c7be0"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/supabase/water_schema.sql": {
+    "mtime": 1777373194.7169447,
+    "hash": "0fbed3e45b2639658f261eb376b41034"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/components/HistoryTab.tsx": {
+    "mtime": 1777380866.5811007,
+    "hash": "d4636035a3ce5103ff787dd10629a574"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/components/FeedingForm.tsx": {
+    "mtime": 1777403925.8098633,
+    "hash": "3ea5d008ed74688a1063488c177339f8"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/components/StockWidget.tsx": {
+    "mtime": 1777403925.811339,
+    "hash": "dc3c905491bdf7b317e34034ce05716f"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/components/SettingsTab.tsx": {
+    "mtime": 1777381448.543185,
+    "hash": "f74cd6d02401b5c982722a391e505d00"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/components/WaterWidget.tsx": {
+    "mtime": 1777404009.7841341,
+    "hash": "91f98d92c39882a2ad6e4604ac2aa1fb"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/components/TweaksPanel.tsx": {
+    "mtime": 1777408361.7585735,
+    "hash": "08eda6a39b44ced61b96f9209e6eacab"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/components/BulkFeedingModal.tsx": {
+    "mtime": 1777403925.8086233,
+    "hash": "ee4882a34ffa2f38e50915d2dba2db3d"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/components/PurchaseModal.tsx": {
+    "mtime": 1777403925.810377,
+    "hash": "108ba09202b4572e96283e38a4cf3263"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/components/FeedingList.tsx": {
+    "mtime": 1777380850.6861746,
+    "hash": "c2f62232af229469a2325d0aed253676"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/components/DryProgress.tsx": {
+    "mtime": 1777403925.8093328,
+    "hash": "987bc176766e161706056175d19e6373"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/components/OrbLayer.tsx": {
+    "mtime": 1777408327.2243736,
+    "hash": "01e7691a1cb430371c6e7e419713da59"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/components/PurchaseHistory.tsx": {
+    "mtime": 1777380838.9636054,
+    "hash": "6e78e83138af376d14720a2479d3b262"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/components/SettingsModal.tsx": {
+    "mtime": 1777403925.8109667,
+    "hash": "b17270fe7a0bc52f99e772179c926e86"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/public/sw.js": {
+    "mtime": 1777373194.716608,
+    "hash": "4a131a0258c53c0c8560d1781c88fdcb"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/lib/push.ts": {
+    "mtime": 1777374740.1782012,
+    "hash": "d2eea678bb40b726cebae7e1b58b7617"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/lib/webpush.ts": {
+    "mtime": 1777373194.7157583,
+    "hash": "83cd51590a73caabc9b167bca99d7389"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/lib/types.ts": {
+    "mtime": 1777373194.7156534,
+    "hash": "118ebbb7350f4c6ad20e317195552658"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/lib/supabase.ts": {
+    "mtime": 1777373194.715558,
+    "hash": "6cfde684efe99df3a315fc6cef6e4170"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/lib/hooks.ts": {
+    "mtime": 1777380794.4349606,
+    "hash": "2858a86b8f66135e0e20d1fa506adb17"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/lib/auth.ts": {
+    "mtime": 1777373194.7154694,
+    "hash": "6bdb6e6fe0c46aab29e22f1d9d4d8f7a"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/SETUP.md": {
+    "mtime": 1777374858.4880989,
+    "hash": "5665d9a83e460dca69b9572cf1ec29ad"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/README.md": {
+    "mtime": 1778500107.6886373,
+    "hash": "ad2274afe7ea490d479cba8b8c6336c3"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/AGENTS.md": {
+    "mtime": 1777381630.163136,
+    "hash": "588de285353fa58762fb65ed32f8d171"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/CLAUDE.md": {
+    "mtime": 1777373441.276905,
+    "hash": "429e276b98edea757eab0e9cdc2f44a3"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/public/apple-touch-icon.jpg": {
+    "mtime": 1777373194.7163875,
+    "hash": "1500eb042a0c15b287016c3590a47c72"
+  },
+  "/Users/bogdanstan/dev/cat/Rita-cat/public/favicon.jpg": {
+    "mtime": 1777373194.7165093,
+    "hash": "e46747cec1073d2d00eea3e90a6f8283"
+  }
+}

@@ -1,0 +1,5412 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "feeding_management_flow",
+        "label": "Feeding Management Flow",
+        "nodes": [
+          "DashboardPage",
+          "api_feedings",
+          "api_feedings_id",
+          "api_feedings_bulk",
+          "db_feedings"
+        ],
+        "relation": "participate_in",
+        "confidence": "INFERRED",
+        "confidence_score": 0.9,
+        "source_file": "app/dashboard/page.tsx"
+      },
+      {
+        "id": "auth_flow",
+        "label": "Authentication Flow",
+        "nodes": [
+          "middleware",
+          "LoginPage",
+          "api_auth"
+        ],
+        "relation": "form",
+        "confidence": "INFERRED",
+        "confidence_score": 0.95,
+        "source_file": "app/login/page.tsx"
+      },
+      {
+        "id": "stock_tracking_flow",
+        "label": "Stock Tracking Flow",
+        "nodes": [
+          "api_stock",
+          "cron_check_stock",
+          "db_purchases",
+          "db_feedings"
+        ],
+        "relation": "participate_in",
+        "confidence": "INFERRED",
+        "confidence_score": 0.85,
+        "source_file": "app/api/stock/route.ts"
+      },
+      {
+        "id": "push_notification_system",
+        "label": "Push Notification System",
+        "nodes": [
+          "registerPush",
+          "resubscribePush",
+          "sendPushToAll",
+          "service_worker",
+          "push_notification_flow"
+        ],
+        "relation": "participate_in",
+        "confidence": "INFERRED",
+        "confidence_score": 0.9,
+        "source_file": "lib/push.ts"
+      },
+      {
+        "id": "stock_management_flow",
+        "label": "Stock Management Flow",
+        "nodes": [
+          "StockWidget",
+          "PurchaseModal",
+          "PurchaseHistory",
+          "StockInfo_type"
+        ],
+        "relation": "form",
+        "confidence": "INFERRED",
+        "confidence_score": 0.85,
+        "source_file": "components/StockWidget.tsx"
+      },
+      {
+        "id": "settings_ui",
+        "label": "Settings UI Elements",
+        "nodes": [
+          "SettingsTab",
+          "SettingsModal",
+          "Settings_type"
+        ],
+        "relation": "form",
+        "confidence": "INFERRED",
+        "confidence_score": 0.8,
+        "source_file": "components/SettingsTab.tsx"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "label": "middleware.ts",
+      "file_type": "code",
+      "source_file": "middleware.ts",
+      "source_location": "L1",
+      "id": "middleware_ts",
+      "community": 14,
+      "norm_label": "middleware.ts"
+    },
+    {
+      "label": "middleware()",
+      "file_type": "code",
+      "source_file": "middleware.ts",
+      "source_location": "L5",
+      "id": "rita_cat_middleware_middleware",
+      "community": 14,
+      "norm_label": "middleware()"
+    },
+    {
+      "label": "config",
+      "file_type": "code",
+      "source_file": "middleware.ts",
+      "source_location": "L24",
+      "id": "rita_cat_middleware_config",
+      "community": 14,
+      "norm_label": "config"
+    },
+    {
+      "label": "postcss.config.mjs",
+      "file_type": "code",
+      "source_file": "postcss.config.mjs",
+      "source_location": "L1",
+      "id": "postcss_config_mjs",
+      "community": 18,
+      "norm_label": "postcss.config.mjs"
+    },
+    {
+      "label": "config",
+      "file_type": "code",
+      "source_file": "postcss.config.mjs",
+      "source_location": "L1",
+      "id": "rita_cat_postcss_config_config",
+      "community": 18,
+      "norm_label": "config"
+    },
+    {
+      "label": "next-env.d.ts",
+      "file_type": "code",
+      "source_file": "next-env.d.ts",
+      "source_location": "L1",
+      "id": "next_env_d_ts",
+      "community": 26,
+      "norm_label": "next-env.d.ts"
+    },
+    {
+      "label": "next.config.ts",
+      "file_type": "code",
+      "source_file": "next.config.ts",
+      "source_location": "L1",
+      "id": "next_config_ts",
+      "community": 19,
+      "norm_label": "next.config.ts"
+    },
+    {
+      "label": "nextConfig",
+      "file_type": "code",
+      "source_file": "next.config.ts",
+      "source_location": "L3",
+      "id": "rita_cat_next_config_nextconfig",
+      "community": 19,
+      "norm_label": "nextconfig"
+    },
+    {
+      "label": "layout.tsx",
+      "file_type": "code",
+      "source_file": "app/layout.tsx",
+      "source_location": "L1",
+      "id": "app_layout_tsx",
+      "community": 8,
+      "norm_label": "layout.tsx"
+    },
+    {
+      "label": "nunito",
+      "file_type": "code",
+      "source_file": "app/layout.tsx",
+      "source_location": "L5",
+      "id": "app_layout_nunito",
+      "community": 8,
+      "norm_label": "nunito"
+    },
+    {
+      "label": "metadata",
+      "file_type": "code",
+      "source_file": "app/layout.tsx",
+      "source_location": "L11",
+      "id": "app_layout_metadata",
+      "community": 8,
+      "norm_label": "metadata"
+    },
+    {
+      "label": "viewport",
+      "file_type": "code",
+      "source_file": "app/layout.tsx",
+      "source_location": "L26",
+      "id": "app_layout_viewport",
+      "community": 8,
+      "norm_label": "viewport"
+    },
+    {
+      "label": "RootLayout()",
+      "file_type": "code",
+      "source_file": "app/layout.tsx",
+      "source_location": "L32",
+      "id": "app_layout_rootlayout",
+      "community": 8,
+      "norm_label": "rootlayout()"
+    },
+    {
+      "label": "manifest.ts",
+      "file_type": "code",
+      "source_file": "app/manifest.ts",
+      "source_location": "L1",
+      "id": "app_manifest_ts",
+      "community": 20,
+      "norm_label": "manifest.ts"
+    },
+    {
+      "label": "manifest()",
+      "file_type": "code",
+      "source_file": "app/manifest.ts",
+      "source_location": "L3",
+      "id": "app_manifest_manifest",
+      "community": 20,
+      "norm_label": "manifest()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/page.tsx",
+      "source_location": "L1",
+      "id": "app_page_tsx",
+      "community": 21,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "Home()",
+      "file_type": "code",
+      "source_file": "app/page.tsx",
+      "source_location": "L3",
+      "id": "app_page_home",
+      "community": 21,
+      "norm_label": "home()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L1",
+      "id": "app_dashboard_page_tsx",
+      "community": 1,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "Tab",
+      "file_type": "code",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L20",
+      "id": "dashboard_page_tab",
+      "community": 1,
+      "norm_label": "tab"
+    },
+    {
+      "label": "toDateStr()",
+      "file_type": "code",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L22",
+      "id": "dashboard_page_todatestr",
+      "community": 1,
+      "norm_label": "todatestr()"
+    },
+    {
+      "label": "formatDayLabel()",
+      "file_type": "code",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L26",
+      "id": "dashboard_page_formatdaylabel",
+      "community": 1,
+      "norm_label": "formatdaylabel()"
+    },
+    {
+      "label": "Burst()",
+      "file_type": "code",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L33",
+      "id": "dashboard_page_burst",
+      "community": 1,
+      "norm_label": "burst()"
+    },
+    {
+      "label": "NavArrow()",
+      "file_type": "code",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L52",
+      "id": "dashboard_page_navarrow",
+      "community": 1,
+      "norm_label": "navarrow()"
+    },
+    {
+      "label": "Stepper()",
+      "file_type": "code",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L86",
+      "id": "dashboard_page_stepper",
+      "community": 1,
+      "norm_label": "stepper()"
+    },
+    {
+      "label": "TABS",
+      "file_type": "code",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L102",
+      "id": "dashboard_page_tabs",
+      "community": 1,
+      "norm_label": "tabs"
+    },
+    {
+      "label": "DashboardPage()",
+      "file_type": "code",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L108",
+      "id": "dashboard_page_dashboardpage",
+      "community": 1,
+      "norm_label": "dashboardpage()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "app/api/settings/route.ts",
+      "source_location": "L1",
+      "id": "app_api_settings_route_ts",
+      "community": 10,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "isAuthorized()",
+      "file_type": "code",
+      "source_file": "app/api/settings/route.ts",
+      "source_location": "L6",
+      "id": "settings_route_isauthorized",
+      "community": 10,
+      "norm_label": "isauthorized()"
+    },
+    {
+      "label": "GET()",
+      "file_type": "code",
+      "source_file": "app/api/settings/route.ts",
+      "source_location": "L12",
+      "id": "settings_route_get",
+      "community": 10,
+      "norm_label": "get()"
+    },
+    {
+      "label": "PUT()",
+      "file_type": "code",
+      "source_file": "app/api/settings/route.ts",
+      "source_location": "L28",
+      "id": "settings_route_put",
+      "community": 10,
+      "norm_label": "put()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "app/api/purchases/route.ts",
+      "source_location": "L1",
+      "id": "app_api_purchases_route_ts",
+      "community": 11,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "isAuthorized()",
+      "file_type": "code",
+      "source_file": "app/api/purchases/route.ts",
+      "source_location": "L6",
+      "id": "purchases_route_isauthorized",
+      "community": 11,
+      "norm_label": "isauthorized()"
+    },
+    {
+      "label": "GET()",
+      "file_type": "code",
+      "source_file": "app/api/purchases/route.ts",
+      "source_location": "L11",
+      "id": "purchases_route_get",
+      "community": 11,
+      "norm_label": "get()"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "app/api/purchases/route.ts",
+      "source_location": "L24",
+      "id": "purchases_route_post",
+      "community": 11,
+      "norm_label": "post()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "app/api/feedings/route.ts",
+      "source_location": "L1",
+      "id": "app_api_feedings_route_ts",
+      "community": 0,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "isAuthorized()",
+      "file_type": "code",
+      "source_file": "app/api/feedings/route.ts",
+      "source_location": "L7",
+      "id": "feedings_route_isauthorized",
+      "community": 0,
+      "norm_label": "isauthorized()"
+    },
+    {
+      "label": "GET()",
+      "file_type": "code",
+      "source_file": "app/api/feedings/route.ts",
+      "source_location": "L16",
+      "id": "feedings_route_get",
+      "community": 0,
+      "norm_label": "get()"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "app/api/feedings/route.ts",
+      "source_location": "L42",
+      "id": "feedings_route_post",
+      "community": 0,
+      "norm_label": "post()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "app/api/feedings/bulk/route.ts",
+      "source_location": "L1",
+      "id": "app_api_feedings_bulk_route_ts",
+      "community": 0,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "app/api/feedings/bulk/route.ts",
+      "source_location": "L6",
+      "id": "bulk_route_post",
+      "community": 0,
+      "norm_label": "post()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "app/api/feedings/[id]/route.ts",
+      "source_location": "L1",
+      "id": "app_api_feedings_id_route_ts",
+      "community": 4,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "isAuthorized()",
+      "file_type": "code",
+      "source_file": "app/api/feedings/[id]/route.ts",
+      "source_location": "L7",
+      "id": "id_route_isauthorized",
+      "community": 4,
+      "norm_label": "isauthorized()"
+    },
+    {
+      "label": "PUT()",
+      "file_type": "code",
+      "source_file": "app/api/feedings/[id]/route.ts",
+      "source_location": "L13",
+      "id": "id_route_put",
+      "community": 4,
+      "norm_label": "put()"
+    },
+    {
+      "label": "DELETE()",
+      "file_type": "code",
+      "source_file": "app/api/feedings/[id]/route.ts",
+      "source_location": "L46",
+      "id": "id_route_delete",
+      "community": 4,
+      "norm_label": "delete()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "app/api/water/route.ts",
+      "source_location": "L1",
+      "id": "app_api_water_route_ts",
+      "community": 0,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "PUT()",
+      "file_type": "code",
+      "source_file": "app/api/water/route.ts",
+      "source_location": "L6",
+      "id": "water_route_put",
+      "community": 0,
+      "norm_label": "put()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "app/api/auth/route.ts",
+      "source_location": "L1",
+      "id": "app_api_auth_route_ts",
+      "community": 0,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "app/api/auth/route.ts",
+      "source_location": "L4",
+      "id": "auth_route_post",
+      "community": 0,
+      "norm_label": "post()"
+    },
+    {
+      "label": "DELETE()",
+      "file_type": "code",
+      "source_file": "app/api/auth/route.ts",
+      "source_location": "L23",
+      "id": "auth_route_delete",
+      "community": 0,
+      "norm_label": "delete()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "app/api/status/route.ts",
+      "source_location": "L1",
+      "id": "app_api_status_route_ts",
+      "community": 0,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "THRESHOLDS",
+      "file_type": "code",
+      "source_file": "app/api/status/route.ts",
+      "source_location": "L5",
+      "id": "status_route_thresholds",
+      "community": 0,
+      "norm_label": "thresholds"
+    },
+    {
+      "label": "GET()",
+      "file_type": "code",
+      "source_file": "app/api/status/route.ts",
+      "source_location": "L7",
+      "id": "status_route_get",
+      "community": 0,
+      "norm_label": "get()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "app/api/push/test/route.ts",
+      "source_location": "L1",
+      "id": "app_api_push_test_route_ts",
+      "community": 0,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "app/api/push/test/route.ts",
+      "source_location": "L7",
+      "id": "test_route_post",
+      "community": 0,
+      "norm_label": "post()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "app/api/push/key/route.ts",
+      "source_location": "L1",
+      "id": "app_api_push_key_route_ts",
+      "community": 0,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "GET()",
+      "file_type": "code",
+      "source_file": "app/api/push/key/route.ts",
+      "source_location": "L5",
+      "id": "key_route_get",
+      "community": 0,
+      "norm_label": "get()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "app/api/push/subscribe/route.ts",
+      "source_location": "L1",
+      "id": "app_api_push_subscribe_route_ts",
+      "community": 0,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "app/api/push/subscribe/route.ts",
+      "source_location": "L6",
+      "id": "subscribe_route_post",
+      "community": 0,
+      "norm_label": "post()"
+    },
+    {
+      "label": "DELETE()",
+      "file_type": "code",
+      "source_file": "app/api/push/subscribe/route.ts",
+      "source_location": "L24",
+      "id": "subscribe_route_delete",
+      "community": 0,
+      "norm_label": "delete()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "app/api/stock/route.ts",
+      "source_location": "L1",
+      "id": "app_api_stock_route_ts",
+      "community": 0,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "GET()",
+      "file_type": "code",
+      "source_file": "app/api/stock/route.ts",
+      "source_location": "L6",
+      "id": "stock_route_get",
+      "community": 0,
+      "norm_label": "get()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "app/api/cron/check-stock/route.ts",
+      "source_location": "L1",
+      "id": "app_api_cron_check_stock_route_ts",
+      "community": 0,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "checkCronSecret()",
+      "file_type": "code",
+      "source_file": "app/api/cron/check-stock/route.ts",
+      "source_location": "L5",
+      "id": "check_stock_route_checkcronsecret",
+      "community": 0,
+      "norm_label": "checkcronsecret()"
+    },
+    {
+      "label": "GET()",
+      "file_type": "code",
+      "source_file": "app/api/cron/check-stock/route.ts",
+      "source_location": "L9",
+      "id": "check_stock_route_get",
+      "community": 0,
+      "norm_label": "get()"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "app/api/cron/check-feeding/route.ts",
+      "source_location": "L1",
+      "id": "app_api_cron_check_feeding_route_ts",
+      "community": 0,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "THRESHOLDS",
+      "file_type": "code",
+      "source_file": "app/api/cron/check-feeding/route.ts",
+      "source_location": "L6",
+      "id": "check_feeding_route_thresholds",
+      "community": 0,
+      "norm_label": "thresholds"
+    },
+    {
+      "label": "checkCronSecret()",
+      "file_type": "code",
+      "source_file": "app/api/cron/check-feeding/route.ts",
+      "source_location": "L12",
+      "id": "check_feeding_route_checkcronsecret",
+      "community": 0,
+      "norm_label": "checkcronsecret()"
+    },
+    {
+      "label": "GET()",
+      "file_type": "code",
+      "source_file": "app/api/cron/check-feeding/route.ts",
+      "source_location": "L16",
+      "id": "check_feeding_route_get",
+      "community": 0,
+      "norm_label": "get()"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "app/login/page.tsx",
+      "source_location": "L1",
+      "id": "app_login_page_tsx",
+      "community": 22,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "LoginPage()",
+      "file_type": "code",
+      "source_file": "app/login/page.tsx",
+      "source_location": "L6",
+      "id": "login_page_loginpage",
+      "community": 22,
+      "norm_label": "loginpage()"
+    },
+    {
+      "label": "HistoryTab.tsx",
+      "file_type": "code",
+      "source_file": "components/HistoryTab.tsx",
+      "source_location": "L1",
+      "id": "components_historytab_tsx",
+      "community": 1,
+      "norm_label": "historytab.tsx"
+    },
+    {
+      "label": "formatTime()",
+      "file_type": "code",
+      "source_file": "components/HistoryTab.tsx",
+      "source_location": "L9",
+      "id": "components_historytab_formattime",
+      "community": 1,
+      "norm_label": "formattime()"
+    },
+    {
+      "label": "dayLabel()",
+      "file_type": "code",
+      "source_file": "components/HistoryTab.tsx",
+      "source_location": "L17",
+      "id": "components_historytab_daylabel",
+      "community": 1,
+      "norm_label": "daylabel()"
+    },
+    {
+      "label": "DayData",
+      "file_type": "code",
+      "source_file": "components/HistoryTab.tsx",
+      "source_location": "L25",
+      "id": "components_historytab_daydata",
+      "community": 1,
+      "norm_label": "daydata"
+    },
+    {
+      "label": "HistoryTab()",
+      "file_type": "code",
+      "source_file": "components/HistoryTab.tsx",
+      "source_location": "L30",
+      "id": "components_historytab_historytab",
+      "community": 1,
+      "norm_label": "historytab()"
+    },
+    {
+      "label": "FeedingForm.tsx",
+      "file_type": "code",
+      "source_file": "components/FeedingForm.tsx",
+      "source_location": "L1",
+      "id": "components_feedingform_tsx",
+      "community": 4,
+      "norm_label": "feedingform.tsx"
+    },
+    {
+      "label": "PRESETS",
+      "file_type": "code",
+      "source_file": "components/FeedingForm.tsx",
+      "source_location": "L7",
+      "id": "components_feedingform_presets",
+      "community": 4,
+      "norm_label": "presets"
+    },
+    {
+      "label": "Props",
+      "file_type": "code",
+      "source_file": "components/FeedingForm.tsx",
+      "source_location": "L13",
+      "id": "components_feedingform_props",
+      "community": 4,
+      "norm_label": "props"
+    },
+    {
+      "label": "FeedingForm()",
+      "file_type": "code",
+      "source_file": "components/FeedingForm.tsx",
+      "source_location": "L19",
+      "id": "components_feedingform_feedingform",
+      "community": 4,
+      "norm_label": "feedingform()"
+    },
+    {
+      "label": "StockWidget.tsx",
+      "file_type": "code",
+      "source_file": "components/StockWidget.tsx",
+      "source_location": "L1",
+      "id": "components_stockwidget_tsx",
+      "community": 1,
+      "norm_label": "stockwidget.tsx"
+    },
+    {
+      "label": "Props",
+      "file_type": "code",
+      "source_file": "components/StockWidget.tsx",
+      "source_location": "L6",
+      "id": "components_stockwidget_props",
+      "community": 1,
+      "norm_label": "props"
+    },
+    {
+      "label": "StockWidget()",
+      "file_type": "code",
+      "source_file": "components/StockWidget.tsx",
+      "source_location": "L11",
+      "id": "components_stockwidget_stockwidget",
+      "community": 6,
+      "norm_label": "stockwidget()"
+    },
+    {
+      "label": "SettingsTab.tsx",
+      "file_type": "code",
+      "source_file": "components/SettingsTab.tsx",
+      "source_location": "L1",
+      "id": "components_settingstab_tsx",
+      "community": 5,
+      "norm_label": "settingstab.tsx"
+    },
+    {
+      "label": "Props",
+      "file_type": "code",
+      "source_file": "components/SettingsTab.tsx",
+      "source_location": "L7",
+      "id": "components_settingstab_props",
+      "community": 5,
+      "norm_label": "props"
+    },
+    {
+      "label": "BIRTHDATE",
+      "file_type": "code",
+      "source_file": "components/SettingsTab.tsx",
+      "source_location": "L12",
+      "id": "components_settingstab_birthdate",
+      "community": 5,
+      "norm_label": "birthdate"
+    },
+    {
+      "label": "calcAge()",
+      "file_type": "code",
+      "source_file": "components/SettingsTab.tsx",
+      "source_location": "L14",
+      "id": "components_settingstab_calcage",
+      "community": 5,
+      "norm_label": "calcage()"
+    },
+    {
+      "label": "plural()",
+      "file_type": "code",
+      "source_file": "components/SettingsTab.tsx",
+      "source_location": "L27",
+      "id": "components_settingstab_plural",
+      "community": 5,
+      "norm_label": "plural()"
+    },
+    {
+      "label": "CAT_ROWS",
+      "file_type": "code",
+      "source_file": "components/SettingsTab.tsx",
+      "source_location": "L35",
+      "id": "components_settingstab_cat_rows",
+      "community": 5,
+      "norm_label": "cat_rows"
+    },
+    {
+      "label": "Row()",
+      "file_type": "code",
+      "source_file": "components/SettingsTab.tsx",
+      "source_location": "L42",
+      "id": "components_settingstab_row",
+      "community": 5,
+      "norm_label": "row()"
+    },
+    {
+      "label": "SettingsTab()",
+      "file_type": "code",
+      "source_file": "components/SettingsTab.tsx",
+      "source_location": "L58",
+      "id": "components_settingstab_settingstab",
+      "community": 5,
+      "norm_label": "settingstab()"
+    },
+    {
+      "label": "WaterWidget.tsx",
+      "file_type": "code",
+      "source_file": "components/WaterWidget.tsx",
+      "source_location": "L1",
+      "id": "components_waterwidget_tsx",
+      "community": 1,
+      "norm_label": "waterwidget.tsx"
+    },
+    {
+      "label": "Props",
+      "file_type": "code",
+      "source_file": "components/WaterWidget.tsx",
+      "source_location": "L5",
+      "id": "components_waterwidget_props",
+      "community": 1,
+      "norm_label": "props"
+    },
+    {
+      "label": "isToday()",
+      "file_type": "code",
+      "source_file": "components/WaterWidget.tsx",
+      "source_location": "L10",
+      "id": "components_waterwidget_istoday",
+      "community": 1,
+      "norm_label": "istoday()"
+    },
+    {
+      "label": "WaterWidget()",
+      "file_type": "code",
+      "source_file": "components/WaterWidget.tsx",
+      "source_location": "L21",
+      "id": "components_waterwidget_waterwidget",
+      "community": 1,
+      "norm_label": "waterwidget()"
+    },
+    {
+      "label": "TweaksPanel.tsx",
+      "file_type": "code",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L1",
+      "id": "components_tweakspanel_tsx",
+      "community": 2,
+      "norm_label": "tweakspanel.tsx"
+    },
+    {
+      "label": "TweakRecord",
+      "file_type": "code",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L5",
+      "id": "components_tweakspanel_tweakrecord",
+      "community": 2,
+      "norm_label": "tweakrecord"
+    },
+    {
+      "label": "useTweaks()",
+      "file_type": "code",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L7",
+      "id": "components_tweakspanel_usetweaks",
+      "community": 1,
+      "norm_label": "usetweaks()"
+    },
+    {
+      "label": "TweaksPanelProps",
+      "file_type": "code",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L15",
+      "id": "components_tweakspanel_tweakspanelprops",
+      "community": 2,
+      "norm_label": "tweakspanelprops"
+    },
+    {
+      "label": "TweaksPanel()",
+      "file_type": "code",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L20",
+      "id": "components_tweakspanel_tweakspanel",
+      "community": 2,
+      "norm_label": "tweakspanel()"
+    },
+    {
+      "label": "TweakSectionProps",
+      "file_type": "code",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L116",
+      "id": "components_tweakspanel_tweaksectionprops",
+      "community": 2,
+      "norm_label": "tweaksectionprops"
+    },
+    {
+      "label": "TweakSection()",
+      "file_type": "code",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L121",
+      "id": "components_tweakspanel_tweaksection",
+      "community": 2,
+      "norm_label": "tweaksection()"
+    },
+    {
+      "label": "TweakRowProps",
+      "file_type": "code",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L130",
+      "id": "components_tweakspanel_tweakrowprops",
+      "community": 2,
+      "norm_label": "tweakrowprops"
+    },
+    {
+      "label": "TweakRow()",
+      "file_type": "code",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L137",
+      "id": "components_tweakspanel_tweakrow",
+      "community": 2,
+      "norm_label": "tweakrow()"
+    },
+    {
+      "label": "TweakSliderProps",
+      "file_type": "code",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L149",
+      "id": "components_tweakspanel_tweaksliderprops",
+      "community": 2,
+      "norm_label": "tweaksliderprops"
+    },
+    {
+      "label": "TweakSlider()",
+      "file_type": "code",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L159",
+      "id": "components_tweakspanel_tweakslider",
+      "community": 2,
+      "norm_label": "tweakslider()"
+    },
+    {
+      "label": "TweakToggleProps",
+      "file_type": "code",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L183",
+      "id": "components_tweakspanel_tweaktoggleprops",
+      "community": 2,
+      "norm_label": "tweaktoggleprops"
+    },
+    {
+      "label": "TweakToggle()",
+      "file_type": "code",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L189",
+      "id": "components_tweakspanel_tweaktoggle",
+      "community": 2,
+      "norm_label": "tweaktoggle()"
+    },
+    {
+      "label": "RadioOption",
+      "file_type": "code",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L209",
+      "id": "components_tweakspanel_radiooption",
+      "community": 2,
+      "norm_label": "radiooption"
+    },
+    {
+      "label": "TweakRadioProps",
+      "file_type": "code",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L211",
+      "id": "components_tweakspanel_tweakradioprops",
+      "community": 2,
+      "norm_label": "tweakradioprops"
+    },
+    {
+      "label": "TweakRadio()",
+      "file_type": "code",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L218",
+      "id": "components_tweakspanel_tweakradio",
+      "community": 2,
+      "norm_label": "tweakradio()"
+    },
+    {
+      "label": "TweakSelectProps",
+      "file_type": "code",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L276",
+      "id": "components_tweakspanel_tweakselectprops",
+      "community": 2,
+      "norm_label": "tweakselectprops"
+    },
+    {
+      "label": "TweakSelect()",
+      "file_type": "code",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L283",
+      "id": "components_tweakspanel_tweakselect",
+      "community": 2,
+      "norm_label": "tweakselect()"
+    },
+    {
+      "label": "TweakTextProps",
+      "file_type": "code",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L300",
+      "id": "components_tweakspanel_tweaktextprops",
+      "community": 2,
+      "norm_label": "tweaktextprops"
+    },
+    {
+      "label": "TweakText()",
+      "file_type": "code",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L307",
+      "id": "components_tweakspanel_tweaktext",
+      "community": 2,
+      "norm_label": "tweaktext()"
+    },
+    {
+      "label": "TweakNumberProps",
+      "file_type": "code",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L321",
+      "id": "components_tweakspanel_tweaknumberprops",
+      "community": 2,
+      "norm_label": "tweaknumberprops"
+    },
+    {
+      "label": "TweakNumber()",
+      "file_type": "code",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L331",
+      "id": "components_tweakspanel_tweaknumber",
+      "community": 2,
+      "norm_label": "tweaknumber()"
+    },
+    {
+      "label": "TweakColorProps",
+      "file_type": "code",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L373",
+      "id": "components_tweakspanel_tweakcolorprops",
+      "community": 2,
+      "norm_label": "tweakcolorprops"
+    },
+    {
+      "label": "TweakColor()",
+      "file_type": "code",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L379",
+      "id": "components_tweakspanel_tweakcolor",
+      "community": 2,
+      "norm_label": "tweakcolor()"
+    },
+    {
+      "label": "TweakButtonProps",
+      "file_type": "code",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L393",
+      "id": "components_tweakspanel_tweakbuttonprops",
+      "community": 2,
+      "norm_label": "tweakbuttonprops"
+    },
+    {
+      "label": "TweakButton()",
+      "file_type": "code",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L399",
+      "id": "components_tweakspanel_tweakbutton",
+      "community": 2,
+      "norm_label": "tweakbutton()"
+    },
+    {
+      "label": "BulkFeedingModal.tsx",
+      "file_type": "code",
+      "source_file": "components/BulkFeedingModal.tsx",
+      "source_location": "L1",
+      "id": "components_bulkfeedingmodal_tsx",
+      "community": 12,
+      "norm_label": "bulkfeedingmodal.tsx"
+    },
+    {
+      "label": "Props",
+      "file_type": "code",
+      "source_file": "components/BulkFeedingModal.tsx",
+      "source_location": "L5",
+      "id": "components_bulkfeedingmodal_props",
+      "community": 12,
+      "norm_label": "props"
+    },
+    {
+      "label": "toLocalDateStr()",
+      "file_type": "code",
+      "source_file": "components/BulkFeedingModal.tsx",
+      "source_location": "L10",
+      "id": "components_bulkfeedingmodal_tolocaldatestr",
+      "community": 12,
+      "norm_label": "tolocaldatestr()"
+    },
+    {
+      "label": "BulkFeedingModal()",
+      "file_type": "code",
+      "source_file": "components/BulkFeedingModal.tsx",
+      "source_location": "L15",
+      "id": "components_bulkfeedingmodal_bulkfeedingmodal",
+      "community": 12,
+      "norm_label": "bulkfeedingmodal()"
+    },
+    {
+      "label": "PurchaseModal.tsx",
+      "file_type": "code",
+      "source_file": "components/PurchaseModal.tsx",
+      "source_location": "L1",
+      "id": "components_purchasemodal_tsx",
+      "community": 1,
+      "norm_label": "purchasemodal.tsx"
+    },
+    {
+      "label": "Props",
+      "file_type": "code",
+      "source_file": "components/PurchaseModal.tsx",
+      "source_location": "L5",
+      "id": "components_purchasemodal_props",
+      "community": 1,
+      "norm_label": "props"
+    },
+    {
+      "label": "PurchaseModal()",
+      "file_type": "code",
+      "source_file": "components/PurchaseModal.tsx",
+      "source_location": "L10",
+      "id": "components_purchasemodal_purchasemodal",
+      "community": 1,
+      "norm_label": "purchasemodal()"
+    },
+    {
+      "label": "FeedingList.tsx",
+      "file_type": "code",
+      "source_file": "components/FeedingList.tsx",
+      "source_location": "L1",
+      "id": "components_feedinglist_tsx",
+      "community": 4,
+      "norm_label": "feedinglist.tsx"
+    },
+    {
+      "label": "Props",
+      "file_type": "code",
+      "source_file": "components/FeedingList.tsx",
+      "source_location": "L8",
+      "id": "components_feedinglist_props",
+      "community": 4,
+      "norm_label": "props"
+    },
+    {
+      "label": "formatTime()",
+      "file_type": "code",
+      "source_file": "components/FeedingList.tsx",
+      "source_location": "L14",
+      "id": "components_feedinglist_formattime",
+      "community": 4,
+      "norm_label": "formattime()"
+    },
+    {
+      "label": "foodEmoji()",
+      "file_type": "code",
+      "source_file": "components/FeedingList.tsx",
+      "source_location": "L22",
+      "id": "components_feedinglist_foodemoji",
+      "community": 4,
+      "norm_label": "foodemoji()"
+    },
+    {
+      "label": "IconBtn()",
+      "file_type": "code",
+      "source_file": "components/FeedingList.tsx",
+      "source_location": "L28",
+      "id": "components_feedinglist_iconbtn",
+      "community": 4,
+      "norm_label": "iconbtn()"
+    },
+    {
+      "label": "FeedingList()",
+      "file_type": "code",
+      "source_file": "components/FeedingList.tsx",
+      "source_location": "L57",
+      "id": "components_feedinglist_feedinglist",
+      "community": 4,
+      "norm_label": "feedinglist()"
+    },
+    {
+      "label": "DryProgress.tsx",
+      "file_type": "code",
+      "source_file": "components/DryProgress.tsx",
+      "source_location": "L1",
+      "id": "components_dryprogress_tsx",
+      "community": 6,
+      "norm_label": "dryprogress.tsx"
+    },
+    {
+      "label": "Props",
+      "file_type": "code",
+      "source_file": "components/DryProgress.tsx",
+      "source_location": "L6",
+      "id": "components_dryprogress_props",
+      "community": 6,
+      "norm_label": "props"
+    },
+    {
+      "label": "Lbl()",
+      "file_type": "code",
+      "source_file": "components/DryProgress.tsx",
+      "source_location": "L13",
+      "id": "components_dryprogress_lbl",
+      "community": 6,
+      "norm_label": "lbl()"
+    },
+    {
+      "label": "QuickBtn()",
+      "file_type": "code",
+      "source_file": "components/DryProgress.tsx",
+      "source_location": "L21",
+      "id": "components_dryprogress_quickbtn",
+      "community": 6,
+      "norm_label": "quickbtn()"
+    },
+    {
+      "label": "DryProgress()",
+      "file_type": "code",
+      "source_file": "components/DryProgress.tsx",
+      "source_location": "L79",
+      "id": "components_dryprogress_dryprogress",
+      "community": 6,
+      "norm_label": "dryprogress()"
+    },
+    {
+      "label": "OrbLayer.tsx",
+      "file_type": "code",
+      "source_file": "components/OrbLayer.tsx",
+      "source_location": "L1",
+      "id": "components_orblayer_tsx",
+      "community": 1,
+      "norm_label": "orblayer.tsx"
+    },
+    {
+      "label": "OrbLayerProps",
+      "file_type": "code",
+      "source_file": "components/OrbLayer.tsx",
+      "source_location": "L3",
+      "id": "components_orblayer_orblayerprops",
+      "community": 1,
+      "norm_label": "orblayerprops"
+    },
+    {
+      "label": "OrbLayer()",
+      "file_type": "code",
+      "source_file": "components/OrbLayer.tsx",
+      "source_location": "L9",
+      "id": "components_orblayer_orblayer",
+      "community": 1,
+      "norm_label": "orblayer()"
+    },
+    {
+      "label": "PurchaseHistory.tsx",
+      "file_type": "code",
+      "source_file": "components/PurchaseHistory.tsx",
+      "source_location": "L1",
+      "id": "components_purchasehistory_tsx",
+      "community": 1,
+      "norm_label": "purchasehistory.tsx"
+    },
+    {
+      "label": "formatDate()",
+      "file_type": "code",
+      "source_file": "components/PurchaseHistory.tsx",
+      "source_location": "L6",
+      "id": "components_purchasehistory_formatdate",
+      "community": 1,
+      "norm_label": "formatdate()"
+    },
+    {
+      "label": "PurchaseHistory()",
+      "file_type": "code",
+      "source_file": "components/PurchaseHistory.tsx",
+      "source_location": "L14",
+      "id": "components_purchasehistory_purchasehistory",
+      "community": 1,
+      "norm_label": "purchasehistory()"
+    },
+    {
+      "label": "SettingsModal.tsx",
+      "file_type": "code",
+      "source_file": "components/SettingsModal.tsx",
+      "source_location": "L1",
+      "id": "components_settingsmodal_tsx",
+      "community": 5,
+      "norm_label": "settingsmodal.tsx"
+    },
+    {
+      "label": "Props",
+      "file_type": "code",
+      "source_file": "components/SettingsModal.tsx",
+      "source_location": "L7",
+      "id": "components_settingsmodal_props",
+      "community": 5,
+      "norm_label": "props"
+    },
+    {
+      "label": "SettingsModal()",
+      "file_type": "code",
+      "source_file": "components/SettingsModal.tsx",
+      "source_location": "L13",
+      "id": "components_settingsmodal_settingsmodal",
+      "community": 5,
+      "norm_label": "settingsmodal()"
+    },
+    {
+      "label": "sw.js",
+      "file_type": "code",
+      "source_file": "public/sw.js",
+      "source_location": "L1",
+      "id": "public_sw_js",
+      "community": 27,
+      "norm_label": "sw.js"
+    },
+    {
+      "label": "push.ts",
+      "file_type": "code",
+      "source_file": "lib/push.ts",
+      "source_location": "L1",
+      "id": "lib_push_ts",
+      "community": 5,
+      "norm_label": "push.ts"
+    },
+    {
+      "label": "registerPush()",
+      "file_type": "code",
+      "source_file": "lib/push.ts",
+      "source_location": "L1",
+      "id": "lib_push_registerpush",
+      "community": 5,
+      "norm_label": "registerpush()"
+    },
+    {
+      "label": "resubscribePush()",
+      "file_type": "code",
+      "source_file": "lib/push.ts",
+      "source_location": "L29",
+      "id": "lib_push_resubscribepush",
+      "community": 5,
+      "norm_label": "resubscribepush()"
+    },
+    {
+      "label": "webpush.ts",
+      "file_type": "code",
+      "source_file": "lib/webpush.ts",
+      "source_location": "L1",
+      "id": "lib_webpush_ts",
+      "community": 0,
+      "norm_label": "webpush.ts"
+    },
+    {
+      "label": "getWebpush()",
+      "file_type": "code",
+      "source_file": "lib/webpush.ts",
+      "source_location": "L4",
+      "id": "lib_webpush_getwebpush",
+      "community": 0,
+      "norm_label": "getwebpush()"
+    },
+    {
+      "label": "sendPushToAll()",
+      "file_type": "code",
+      "source_file": "lib/webpush.ts",
+      "source_location": "L13",
+      "id": "lib_webpush_sendpushtoall",
+      "community": 0,
+      "norm_label": "sendpushtoall()"
+    },
+    {
+      "label": "types.ts",
+      "file_type": "code",
+      "source_file": "lib/types.ts",
+      "source_location": "L1",
+      "id": "lib_types_ts",
+      "community": 1,
+      "norm_label": "types.ts"
+    },
+    {
+      "label": "FoodType",
+      "file_type": "code",
+      "source_file": "lib/types.ts",
+      "source_location": "L1",
+      "id": "lib_types_foodtype",
+      "community": 4,
+      "norm_label": "foodtype"
+    },
+    {
+      "label": "Feeding",
+      "file_type": "code",
+      "source_file": "lib/types.ts",
+      "source_location": "L3",
+      "id": "lib_types_feeding",
+      "community": 1,
+      "norm_label": "feeding"
+    },
+    {
+      "label": "Settings",
+      "file_type": "code",
+      "source_file": "lib/types.ts",
+      "source_location": "L11",
+      "id": "lib_types_settings",
+      "community": 1,
+      "norm_label": "settings"
+    },
+    {
+      "label": "FOOD_TYPE_LABELS",
+      "file_type": "code",
+      "source_file": "lib/types.ts",
+      "source_location": "L18",
+      "id": "lib_types_food_type_labels",
+      "community": 4,
+      "norm_label": "food_type_labels"
+    },
+    {
+      "label": "Purchase",
+      "file_type": "code",
+      "source_file": "lib/types.ts",
+      "source_location": "L24",
+      "id": "lib_types_purchase",
+      "community": 1,
+      "norm_label": "purchase"
+    },
+    {
+      "label": "StockInfo",
+      "file_type": "code",
+      "source_file": "lib/types.ts",
+      "source_location": "L30",
+      "id": "lib_types_stockinfo",
+      "community": 1,
+      "norm_label": "stockinfo"
+    },
+    {
+      "label": "supabase.ts",
+      "file_type": "code",
+      "source_file": "lib/supabase.ts",
+      "source_location": "L1",
+      "id": "lib_supabase_ts",
+      "community": 0,
+      "norm_label": "supabase.ts"
+    },
+    {
+      "label": "supabase",
+      "file_type": "code",
+      "source_file": "lib/supabase.ts",
+      "source_location": "L6",
+      "id": "lib_supabase_supabase",
+      "community": 0,
+      "norm_label": "supabase"
+    },
+    {
+      "label": "hooks.ts",
+      "file_type": "code",
+      "source_file": "lib/hooks.ts",
+      "source_location": "L1",
+      "id": "lib_hooks_ts",
+      "community": 6,
+      "norm_label": "hooks.ts"
+    },
+    {
+      "label": "useCountUp()",
+      "file_type": "code",
+      "source_file": "lib/hooks.ts",
+      "source_location": "L3",
+      "id": "lib_hooks_usecountup",
+      "community": 6,
+      "norm_label": "usecountup()"
+    },
+    {
+      "label": "auth.ts",
+      "file_type": "code",
+      "source_file": "lib/auth.ts",
+      "source_location": "L1",
+      "id": "lib_auth_ts",
+      "community": 0,
+      "norm_label": "auth.ts"
+    },
+    {
+      "label": "checkPassword()",
+      "file_type": "code",
+      "source_file": "lib/auth.ts",
+      "source_location": "L3",
+      "id": "lib_auth_checkpassword",
+      "community": 0,
+      "norm_label": "checkpassword()"
+    },
+    {
+      "label": "checkBearer()",
+      "file_type": "code",
+      "source_file": "lib/auth.ts",
+      "source_location": "L7",
+      "id": "lib_auth_checkbearer",
+      "community": 0,
+      "norm_label": "checkbearer()"
+    },
+    {
+      "label": "Auth Middleware",
+      "file_type": "code",
+      "source_file": "middleware.ts",
+      "id": "middleware",
+      "community": 3,
+      "norm_label": "auth middleware"
+    },
+    {
+      "label": "Dashboard Page",
+      "file_type": "code",
+      "source_file": "app/dashboard/page.tsx",
+      "id": "DashboardPage",
+      "community": 3,
+      "norm_label": "dashboard page"
+    },
+    {
+      "label": "Login Page",
+      "file_type": "code",
+      "source_file": "app/login/page.tsx",
+      "id": "LoginPage",
+      "community": 3,
+      "norm_label": "login page"
+    },
+    {
+      "label": "Settings API",
+      "file_type": "code",
+      "source_file": "app/api/settings/route.ts",
+      "id": "api_settings",
+      "community": 3,
+      "norm_label": "settings api"
+    },
+    {
+      "label": "Purchases API",
+      "file_type": "code",
+      "source_file": "app/api/purchases/route.ts",
+      "id": "api_purchases",
+      "community": 3,
+      "norm_label": "purchases api"
+    },
+    {
+      "label": "Feedings API",
+      "file_type": "code",
+      "source_file": "app/api/feedings/route.ts",
+      "id": "api_feedings",
+      "community": 3,
+      "norm_label": "feedings api"
+    },
+    {
+      "label": "Bulk Feedings API",
+      "file_type": "code",
+      "source_file": "app/api/feedings/bulk/route.ts",
+      "id": "api_feedings_bulk",
+      "community": 3,
+      "norm_label": "bulk feedings api"
+    },
+    {
+      "label": "Feedings ID API",
+      "file_type": "code",
+      "source_file": "app/api/feedings/[id]/route.ts",
+      "id": "api_feedings_id",
+      "community": 3,
+      "norm_label": "feedings id api"
+    },
+    {
+      "label": "Water API",
+      "file_type": "code",
+      "source_file": "app/api/water/route.ts",
+      "id": "api_water",
+      "community": 3,
+      "norm_label": "water api"
+    },
+    {
+      "label": "Auth API",
+      "file_type": "code",
+      "source_file": "app/api/auth/route.ts",
+      "id": "api_auth",
+      "community": 3,
+      "norm_label": "auth api"
+    },
+    {
+      "label": "Status API",
+      "file_type": "code",
+      "source_file": "app/api/status/route.ts",
+      "id": "api_status",
+      "community": 3,
+      "norm_label": "status api"
+    },
+    {
+      "label": "Push Subscribe API",
+      "file_type": "code",
+      "source_file": "app/api/push/subscribe/route.ts",
+      "id": "api_push_subscribe",
+      "community": 23,
+      "norm_label": "push subscribe api"
+    },
+    {
+      "label": "Push Test API",
+      "file_type": "code",
+      "source_file": "app/api/push/test/route.ts",
+      "id": "api_push_test",
+      "community": 28,
+      "norm_label": "push test api"
+    },
+    {
+      "label": "Stock API",
+      "file_type": "code",
+      "source_file": "app/api/stock/route.ts",
+      "id": "api_stock",
+      "community": 3,
+      "norm_label": "stock api"
+    },
+    {
+      "label": "Cron Check Stock",
+      "file_type": "code",
+      "source_file": "app/api/cron/check-stock/route.ts",
+      "id": "cron_check_stock",
+      "community": 3,
+      "norm_label": "cron check stock"
+    },
+    {
+      "label": "Cron Check Feeding",
+      "file_type": "code",
+      "source_file": "app/api/cron/check-feeding/route.ts",
+      "id": "cron_check_feeding",
+      "community": 3,
+      "norm_label": "cron check feeding"
+    },
+    {
+      "label": "Feedings Table",
+      "file_type": "code",
+      "source_file": "supabase/schema.sql",
+      "id": "db_feedings",
+      "community": 3,
+      "norm_label": "feedings table"
+    },
+    {
+      "label": "Settings Table",
+      "file_type": "code",
+      "source_file": "supabase/schema.sql",
+      "id": "db_settings",
+      "community": 3,
+      "norm_label": "settings table"
+    },
+    {
+      "label": "Purchases Table",
+      "file_type": "code",
+      "source_file": "supabase/purchases_schema.sql",
+      "id": "db_purchases",
+      "community": 3,
+      "norm_label": "purchases table"
+    },
+    {
+      "label": "Push Subscriptions Table",
+      "file_type": "code",
+      "source_file": "supabase/purchases_schema.sql",
+      "id": "db_push_subscriptions",
+      "community": 23,
+      "norm_label": "push subscriptions table"
+    },
+    {
+      "label": "HistoryTab",
+      "file_type": "code",
+      "source_file": "components/HistoryTab.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "HistoryTab",
+      "community": 9,
+      "norm_label": "historytab"
+    },
+    {
+      "label": "FeedingForm",
+      "file_type": "code",
+      "source_file": "components/FeedingForm.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "FeedingForm",
+      "community": 9,
+      "norm_label": "feedingform"
+    },
+    {
+      "label": "StockWidget",
+      "file_type": "code",
+      "source_file": "components/StockWidget.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "StockWidget",
+      "community": 13,
+      "norm_label": "stockwidget"
+    },
+    {
+      "label": "SettingsTab",
+      "file_type": "code",
+      "source_file": "components/SettingsTab.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "SettingsTab",
+      "community": 7,
+      "norm_label": "settingstab"
+    },
+    {
+      "label": "WaterWidget",
+      "file_type": "code",
+      "source_file": "components/WaterWidget.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "WaterWidget",
+      "community": 7,
+      "norm_label": "waterwidget"
+    },
+    {
+      "label": "TweaksPanel",
+      "file_type": "code",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "TweaksPanel",
+      "community": 29,
+      "norm_label": "tweakspanel"
+    },
+    {
+      "label": "BulkFeedingModal",
+      "file_type": "code",
+      "source_file": "components/BulkFeedingModal.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "BulkFeedingModal",
+      "community": 9,
+      "norm_label": "bulkfeedingmodal"
+    },
+    {
+      "label": "PurchaseModal",
+      "file_type": "code",
+      "source_file": "components/PurchaseModal.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "PurchaseModal",
+      "community": 15,
+      "norm_label": "purchasemodal"
+    },
+    {
+      "label": "FeedingList",
+      "file_type": "code",
+      "source_file": "components/FeedingList.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "FeedingList",
+      "community": 9,
+      "norm_label": "feedinglist"
+    },
+    {
+      "label": "DryProgress",
+      "file_type": "code",
+      "source_file": "components/DryProgress.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "DryProgress",
+      "community": 13,
+      "norm_label": "dryprogress"
+    },
+    {
+      "label": "OrbLayer",
+      "file_type": "code",
+      "source_file": "components/OrbLayer.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "OrbLayer",
+      "community": 30,
+      "norm_label": "orblayer"
+    },
+    {
+      "label": "PurchaseHistory",
+      "file_type": "code",
+      "source_file": "components/PurchaseHistory.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "PurchaseHistory",
+      "community": 15,
+      "norm_label": "purchasehistory"
+    },
+    {
+      "label": "SettingsModal",
+      "file_type": "code",
+      "source_file": "components/SettingsModal.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "SettingsModal",
+      "community": 7,
+      "norm_label": "settingsmodal"
+    },
+    {
+      "label": "Service Worker Push Handler",
+      "file_type": "code",
+      "source_file": "public/sw.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "service_worker",
+      "community": 16,
+      "norm_label": "service worker push handler"
+    },
+    {
+      "label": "registerPush",
+      "file_type": "code",
+      "source_file": "lib/push.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "registerPush",
+      "community": 7,
+      "norm_label": "registerpush"
+    },
+    {
+      "label": "resubscribePush",
+      "file_type": "code",
+      "source_file": "lib/push.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "resubscribePush",
+      "community": 7,
+      "norm_label": "resubscribepush"
+    },
+    {
+      "label": "sendPushToAll",
+      "file_type": "code",
+      "source_file": "lib/webpush.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "sendPushToAll",
+      "community": 16,
+      "norm_label": "sendpushtoall"
+    },
+    {
+      "label": "Feeding",
+      "file_type": "code",
+      "source_file": "lib/types.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "Feeding_type",
+      "community": 9,
+      "norm_label": "feeding"
+    },
+    {
+      "label": "Settings",
+      "file_type": "code",
+      "source_file": "lib/types.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "Settings_type",
+      "community": 7,
+      "norm_label": "settings"
+    },
+    {
+      "label": "Purchase",
+      "file_type": "code",
+      "source_file": "lib/types.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "Purchase_type",
+      "community": 15,
+      "norm_label": "purchase"
+    },
+    {
+      "label": "StockInfo",
+      "file_type": "code",
+      "source_file": "lib/types.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "StockInfo_type",
+      "community": 13,
+      "norm_label": "stockinfo"
+    },
+    {
+      "label": "Supabase Client",
+      "file_type": "code",
+      "source_file": "lib/supabase.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "supabase_client",
+      "community": 16,
+      "norm_label": "supabase client"
+    },
+    {
+      "label": "useCountUp",
+      "file_type": "code",
+      "source_file": "lib/hooks.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "useCountUp",
+      "community": 13,
+      "norm_label": "usecountup"
+    },
+    {
+      "label": "checkPassword",
+      "file_type": "code",
+      "source_file": "lib/auth.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "checkPassword",
+      "community": 17,
+      "norm_label": "checkpassword"
+    },
+    {
+      "label": "checkBearer",
+      "file_type": "code",
+      "source_file": "lib/auth.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "checkBearer",
+      "community": 17,
+      "norm_label": "checkbearer"
+    },
+    {
+      "label": "Cron Jobs Setup",
+      "file_type": "document",
+      "source_file": "SETUP.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "setup_cron",
+      "community": 31,
+      "norm_label": "cron jobs setup"
+    },
+    {
+      "label": "iPhone Shortcuts",
+      "file_type": "document",
+      "source_file": "SETUP.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "setup_shortcuts",
+      "community": 17,
+      "norm_label": "iphone shortcuts"
+    },
+    {
+      "label": "Rita Architecture",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "rita_architecture",
+      "community": 24,
+      "norm_label": "rita architecture"
+    },
+    {
+      "label": "Push Notification Flow",
+      "file_type": "rationale",
+      "source_file": "AGENTS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "push_notification_flow",
+      "community": 24,
+      "norm_label": "push notification flow"
+    },
+    {
+      "label": "Water Schema Migration",
+      "file_type": "code",
+      "source_file": "supabase/water_schema.sql",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "water_schema",
+      "community": 7,
+      "norm_label": "water schema migration"
+    },
+    {
+      "label": "Rita-cat App Icon",
+      "file_type": "image",
+      "source_file": "public/apple-touch-icon.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "apple_touch_icon_image",
+      "community": 32,
+      "norm_label": "rita-cat app icon"
+    },
+    {
+      "label": "Cat Favicon",
+      "file_type": "image",
+      "source_file": "public/favicon.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "favicon_cat_image",
+      "community": 25,
+      "norm_label": "cat favicon"
+    },
+    {
+      "label": "Rita the Cat Mascot",
+      "file_type": "rationale",
+      "source_file": "public/favicon.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "rita_cat_mascot",
+      "community": 25,
+      "norm_label": "rita the cat mascot"
+    }
+  ],
+  "links": [
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "middleware.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "middleware_ts",
+      "target": "lib_auth_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "middleware.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "middleware_ts",
+      "target": "rita_cat_middleware_middleware",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "middleware.ts",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "middleware_ts",
+      "target": "rita_cat_middleware_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "postcss.config.mjs",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "postcss_config_mjs",
+      "target": "rita_cat_postcss_config_config",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "next.config.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "next_config_ts",
+      "target": "rita_cat_next_config_nextconfig",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/layout.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_layout_tsx",
+      "target": "app_layout_nunito",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/layout.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_layout_tsx",
+      "target": "app_layout_metadata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/layout.tsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "app_layout_tsx",
+      "target": "app_layout_viewport",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/layout.tsx",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "app_layout_tsx",
+      "target": "app_layout_rootlayout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/manifest.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_manifest_ts",
+      "target": "app_manifest_manifest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/page.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_page_tsx",
+      "target": "app_page_home",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "lib_types_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "lib_types_feeding",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "lib_types_settings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "lib_types_stockinfo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "components_feedinglist_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "components_dryprogress_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "components_bulkfeedingmodal_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "components_stockwidget_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "components_purchasemodal_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "components_waterwidget_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "components_purchasehistory_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "components_historytab_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "components_settingstab_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "components_tweakspanel_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "components_tweakspanel_usetweaks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "components_tweakspanel_tweakspanel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "components_tweakspanel_tweaksection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "components_tweakspanel_tweaktoggle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "components_tweakspanel_tweakslider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "components_orblayer_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "components_orblayer_orblayer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "dashboard_page_tab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "dashboard_page_todatestr",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "dashboard_page_formatdaylabel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "dashboard_page_burst",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "dashboard_page_navarrow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L86",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "dashboard_page_stepper",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L102",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "dashboard_page_tabs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L108",
+      "weight": 1.0,
+      "source": "app_dashboard_page_tsx",
+      "target": "dashboard_page_dashboardpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "dashboard_page_formatdaylabel",
+      "target": "dashboard_page_todatestr",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L216",
+      "weight": 1.0,
+      "source": "dashboard_page_dashboardpage",
+      "target": "dashboard_page_todatestr",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L287",
+      "weight": 1.0,
+      "source": "dashboard_page_dashboardpage",
+      "target": "dashboard_page_formatdaylabel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/dashboard/page.tsx",
+      "source_location": "L125",
+      "weight": 1.0,
+      "source": "dashboard_page_dashboardpage",
+      "target": "components_tweakspanel_usetweaks"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/settings/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_api_settings_route_ts",
+      "target": "lib_supabase_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/settings/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_api_settings_route_ts",
+      "target": "lib_supabase_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/settings/route.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "app_api_settings_route_ts",
+      "target": "lib_auth_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/settings/route.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "app_api_settings_route_ts",
+      "target": "settings_route_isauthorized",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/settings/route.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_api_settings_route_ts",
+      "target": "settings_route_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/settings/route.ts",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "app_api_settings_route_ts",
+      "target": "settings_route_put",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/settings/route.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "settings_route_get",
+      "target": "settings_route_isauthorized",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/settings/route.ts",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "settings_route_put",
+      "target": "settings_route_isauthorized",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/purchases/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_api_purchases_route_ts",
+      "target": "lib_supabase_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/purchases/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_api_purchases_route_ts",
+      "target": "lib_supabase_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/purchases/route.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "app_api_purchases_route_ts",
+      "target": "lib_auth_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/purchases/route.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "app_api_purchases_route_ts",
+      "target": "purchases_route_isauthorized",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/purchases/route.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "app_api_purchases_route_ts",
+      "target": "purchases_route_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/purchases/route.ts",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "app_api_purchases_route_ts",
+      "target": "purchases_route_post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/purchases/route.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "purchases_route_get",
+      "target": "purchases_route_isauthorized",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/purchases/route.ts",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "purchases_route_post",
+      "target": "purchases_route_isauthorized",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/feedings/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_api_feedings_route_ts",
+      "target": "lib_supabase_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/feedings/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_api_feedings_route_ts",
+      "target": "lib_supabase_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/feedings/route.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "app_api_feedings_route_ts",
+      "target": "lib_auth_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/feedings/route.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "app_api_feedings_route_ts",
+      "target": "lib_auth_checkbearer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/feedings/route.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_api_feedings_route_ts",
+      "target": "lib_types_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/feedings/route.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_api_feedings_route_ts",
+      "target": "lib_types_foodtype",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/feedings/route.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_api_feedings_route_ts",
+      "target": "feedings_route_isauthorized",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/feedings/route.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "app_api_feedings_route_ts",
+      "target": "feedings_route_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/feedings/route.ts",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "app_api_feedings_route_ts",
+      "target": "feedings_route_post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/feedings/route.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "feedings_route_isauthorized",
+      "target": "feedings_route_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/feedings/route.ts",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "feedings_route_post",
+      "target": "feedings_route_isauthorized",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/api/feedings/route.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "feedings_route_isauthorized",
+      "target": "lib_auth_checkbearer"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/feedings/bulk/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_api_feedings_bulk_route_ts",
+      "target": "lib_supabase_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/feedings/bulk/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_api_feedings_bulk_route_ts",
+      "target": "lib_supabase_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/feedings/bulk/route.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "app_api_feedings_bulk_route_ts",
+      "target": "lib_auth_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/feedings/bulk/route.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "app_api_feedings_bulk_route_ts",
+      "target": "bulk_route_post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/feedings/[id]/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_api_feedings_id_route_ts",
+      "target": "lib_supabase_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/feedings/[id]/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_api_feedings_id_route_ts",
+      "target": "lib_supabase_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/feedings/[id]/route.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "app_api_feedings_id_route_ts",
+      "target": "lib_auth_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/feedings/[id]/route.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_api_feedings_id_route_ts",
+      "target": "lib_types_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/feedings/[id]/route.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_api_feedings_id_route_ts",
+      "target": "lib_types_foodtype",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/feedings/[id]/route.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_api_feedings_id_route_ts",
+      "target": "id_route_isauthorized",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/feedings/[id]/route.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "app_api_feedings_id_route_ts",
+      "target": "id_route_put",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/feedings/[id]/route.ts",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "app_api_feedings_id_route_ts",
+      "target": "id_route_delete",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/feedings/[id]/route.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "id_route_put",
+      "target": "id_route_isauthorized",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/feedings/[id]/route.ts",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "id_route_delete",
+      "target": "id_route_isauthorized",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/water/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_api_water_route_ts",
+      "target": "lib_supabase_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/water/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_api_water_route_ts",
+      "target": "lib_supabase_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/water/route.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "app_api_water_route_ts",
+      "target": "lib_auth_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/water/route.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "app_api_water_route_ts",
+      "target": "water_route_put",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth/route.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "app_api_auth_route_ts",
+      "target": "lib_auth_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth/route.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "app_api_auth_route_ts",
+      "target": "lib_auth_checkpassword",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth/route.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "app_api_auth_route_ts",
+      "target": "auth_route_post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/auth/route.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "app_api_auth_route_ts",
+      "target": "auth_route_delete",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/api/auth/route.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "auth_route_post",
+      "target": "lib_auth_checkpassword"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/status/route.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "app_api_status_route_ts",
+      "target": "lib_supabase_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/status/route.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "app_api_status_route_ts",
+      "target": "lib_supabase_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/status/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_api_status_route_ts",
+      "target": "lib_auth_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/status/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_api_status_route_ts",
+      "target": "lib_auth_checkbearer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/status/route.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_api_status_route_ts",
+      "target": "status_route_thresholds",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/status/route.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_api_status_route_ts",
+      "target": "status_route_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/api/status/route.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "status_route_get",
+      "target": "lib_auth_checkbearer"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/push/test/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_api_push_test_route_ts",
+      "target": "lib_supabase_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/push/test/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_api_push_test_route_ts",
+      "target": "lib_supabase_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/push/test/route.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "app_api_push_test_route_ts",
+      "target": "lib_webpush_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/push/test/route.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "app_api_push_test_route_ts",
+      "target": "lib_webpush_sendpushtoall",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/push/test/route.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_api_push_test_route_ts",
+      "target": "lib_auth_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/push/test/route.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "app_api_push_test_route_ts",
+      "target": "test_route_post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/api/push/test/route.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "test_route_post",
+      "target": "lib_webpush_sendpushtoall"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/push/key/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_api_push_key_route_ts",
+      "target": "lib_auth_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/push/key/route.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_api_push_key_route_ts",
+      "target": "key_route_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/push/subscribe/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_api_push_subscribe_route_ts",
+      "target": "lib_supabase_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/push/subscribe/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_api_push_subscribe_route_ts",
+      "target": "lib_supabase_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/push/subscribe/route.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "app_api_push_subscribe_route_ts",
+      "target": "lib_auth_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/push/subscribe/route.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "app_api_push_subscribe_route_ts",
+      "target": "subscribe_route_post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/push/subscribe/route.ts",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "app_api_push_subscribe_route_ts",
+      "target": "subscribe_route_delete",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/stock/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_api_stock_route_ts",
+      "target": "lib_supabase_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/stock/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_api_stock_route_ts",
+      "target": "lib_supabase_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/stock/route.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "app_api_stock_route_ts",
+      "target": "lib_auth_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/stock/route.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "app_api_stock_route_ts",
+      "target": "stock_route_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/cron/check-stock/route.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "app_api_cron_check_stock_route_ts",
+      "target": "lib_supabase_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/cron/check-stock/route.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "app_api_cron_check_stock_route_ts",
+      "target": "lib_supabase_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/cron/check-stock/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_api_cron_check_stock_route_ts",
+      "target": "lib_webpush_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/cron/check-stock/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_api_cron_check_stock_route_ts",
+      "target": "lib_webpush_sendpushtoall",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/cron/check-stock/route.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "app_api_cron_check_stock_route_ts",
+      "target": "check_stock_route_checkcronsecret",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/cron/check-stock/route.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "app_api_cron_check_stock_route_ts",
+      "target": "check_stock_route_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/cron/check-stock/route.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "check_stock_route_get",
+      "target": "check_stock_route_checkcronsecret",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/api/cron/check-stock/route.ts",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "check_stock_route_get",
+      "target": "lib_webpush_sendpushtoall"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/cron/check-feeding/route.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "app_api_cron_check_feeding_route_ts",
+      "target": "lib_supabase_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/cron/check-feeding/route.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "app_api_cron_check_feeding_route_ts",
+      "target": "lib_supabase_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/cron/check-feeding/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_api_cron_check_feeding_route_ts",
+      "target": "lib_webpush_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/cron/check-feeding/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "app_api_cron_check_feeding_route_ts",
+      "target": "lib_webpush_sendpushtoall",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/cron/check-feeding/route.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "app_api_cron_check_feeding_route_ts",
+      "target": "check_feeding_route_thresholds",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/cron/check-feeding/route.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "app_api_cron_check_feeding_route_ts",
+      "target": "check_feeding_route_checkcronsecret",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/cron/check-feeding/route.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "app_api_cron_check_feeding_route_ts",
+      "target": "check_feeding_route_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/cron/check-feeding/route.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "check_feeding_route_get",
+      "target": "check_feeding_route_checkcronsecret",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/api/cron/check-feeding/route.ts",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "check_feeding_route_get",
+      "target": "lib_webpush_sendpushtoall"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/login/page.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "app_login_page_tsx",
+      "target": "login_page_loginpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/HistoryTab.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_historytab_tsx",
+      "target": "lib_types_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/HistoryTab.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_historytab_tsx",
+      "target": "lib_types_feeding",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/HistoryTab.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_historytab_tsx",
+      "target": "lib_types_food_type_labels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/HistoryTab.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "components_historytab_tsx",
+      "target": "components_historytab_formattime",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/HistoryTab.tsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "components_historytab_tsx",
+      "target": "components_historytab_daylabel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/HistoryTab.tsx",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "components_historytab_tsx",
+      "target": "components_historytab_daydata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/HistoryTab.tsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "components_historytab_tsx",
+      "target": "components_historytab_historytab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/FeedingForm.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_feedingform_tsx",
+      "target": "lib_types_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/FeedingForm.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_feedingform_tsx",
+      "target": "lib_types_feeding",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/FeedingForm.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_feedingform_tsx",
+      "target": "lib_types_foodtype",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/FeedingForm.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_feedingform_tsx",
+      "target": "lib_types_food_type_labels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/FeedingForm.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "components_feedingform_tsx",
+      "target": "components_feedingform_presets",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/FeedingForm.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "components_feedingform_tsx",
+      "target": "components_feedingform_props",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/FeedingForm.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "components_feedingform_tsx",
+      "target": "components_feedingform_feedingform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/FeedingList.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_feedinglist_tsx",
+      "target": "components_feedingform_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/StockWidget.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_stockwidget_tsx",
+      "target": "lib_hooks_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/StockWidget.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_stockwidget_tsx",
+      "target": "lib_hooks_usecountup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/StockWidget.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_stockwidget_tsx",
+      "target": "lib_types_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/StockWidget.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_stockwidget_tsx",
+      "target": "lib_types_stockinfo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/StockWidget.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_stockwidget_tsx",
+      "target": "components_stockwidget_props",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/StockWidget.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "components_stockwidget_tsx",
+      "target": "components_stockwidget_stockwidget",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/StockWidget.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "components_stockwidget_stockwidget",
+      "target": "lib_hooks_usecountup"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/SettingsTab.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_settingstab_tsx",
+      "target": "lib_types_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/SettingsTab.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_settingstab_tsx",
+      "target": "lib_types_settings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/SettingsTab.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_settingstab_tsx",
+      "target": "lib_push_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/SettingsTab.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_settingstab_tsx",
+      "target": "lib_push_resubscribepush",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/SettingsTab.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "components_settingstab_tsx",
+      "target": "components_settingstab_props",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/SettingsTab.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "components_settingstab_tsx",
+      "target": "components_settingstab_birthdate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/SettingsTab.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "components_settingstab_tsx",
+      "target": "components_settingstab_calcage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/SettingsTab.tsx",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "components_settingstab_tsx",
+      "target": "components_settingstab_plural",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/SettingsTab.tsx",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "components_settingstab_tsx",
+      "target": "components_settingstab_cat_rows",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/SettingsTab.tsx",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "components_settingstab_tsx",
+      "target": "components_settingstab_row",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/SettingsTab.tsx",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "components_settingstab_tsx",
+      "target": "components_settingstab_settingstab",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "components/SettingsTab.tsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "components_settingstab_calcage",
+      "target": "components_settingstab_plural",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/WaterWidget.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_waterwidget_tsx",
+      "target": "lib_types_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/WaterWidget.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_waterwidget_tsx",
+      "target": "lib_types_settings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/WaterWidget.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_waterwidget_tsx",
+      "target": "components_waterwidget_props",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/WaterWidget.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "components_waterwidget_tsx",
+      "target": "components_waterwidget_istoday",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/WaterWidget.tsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "components_waterwidget_tsx",
+      "target": "components_waterwidget_waterwidget",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "components/WaterWidget.tsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "components_waterwidget_waterwidget",
+      "target": "components_waterwidget_istoday",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_tweakspanel_tsx",
+      "target": "components_tweakspanel_tweakrecord",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "components_tweakspanel_tsx",
+      "target": "components_tweakspanel_usetweaks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "components_tweakspanel_tsx",
+      "target": "components_tweakspanel_tweakspanelprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "components_tweakspanel_tsx",
+      "target": "components_tweakspanel_tweakspanel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L116",
+      "weight": 1.0,
+      "source": "components_tweakspanel_tsx",
+      "target": "components_tweakspanel_tweaksectionprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L121",
+      "weight": 1.0,
+      "source": "components_tweakspanel_tsx",
+      "target": "components_tweakspanel_tweaksection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L130",
+      "weight": 1.0,
+      "source": "components_tweakspanel_tsx",
+      "target": "components_tweakspanel_tweakrowprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L137",
+      "weight": 1.0,
+      "source": "components_tweakspanel_tsx",
+      "target": "components_tweakspanel_tweakrow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L149",
+      "weight": 1.0,
+      "source": "components_tweakspanel_tsx",
+      "target": "components_tweakspanel_tweaksliderprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L159",
+      "weight": 1.0,
+      "source": "components_tweakspanel_tsx",
+      "target": "components_tweakspanel_tweakslider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L183",
+      "weight": 1.0,
+      "source": "components_tweakspanel_tsx",
+      "target": "components_tweakspanel_tweaktoggleprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L189",
+      "weight": 1.0,
+      "source": "components_tweakspanel_tsx",
+      "target": "components_tweakspanel_tweaktoggle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L209",
+      "weight": 1.0,
+      "source": "components_tweakspanel_tsx",
+      "target": "components_tweakspanel_radiooption",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L211",
+      "weight": 1.0,
+      "source": "components_tweakspanel_tsx",
+      "target": "components_tweakspanel_tweakradioprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L218",
+      "weight": 1.0,
+      "source": "components_tweakspanel_tsx",
+      "target": "components_tweakspanel_tweakradio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L276",
+      "weight": 1.0,
+      "source": "components_tweakspanel_tsx",
+      "target": "components_tweakspanel_tweakselectprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L283",
+      "weight": 1.0,
+      "source": "components_tweakspanel_tsx",
+      "target": "components_tweakspanel_tweakselect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L300",
+      "weight": 1.0,
+      "source": "components_tweakspanel_tsx",
+      "target": "components_tweakspanel_tweaktextprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L307",
+      "weight": 1.0,
+      "source": "components_tweakspanel_tsx",
+      "target": "components_tweakspanel_tweaktext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L321",
+      "weight": 1.0,
+      "source": "components_tweakspanel_tsx",
+      "target": "components_tweakspanel_tweaknumberprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L331",
+      "weight": 1.0,
+      "source": "components_tweakspanel_tsx",
+      "target": "components_tweakspanel_tweaknumber",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L373",
+      "weight": 1.0,
+      "source": "components_tweakspanel_tsx",
+      "target": "components_tweakspanel_tweakcolorprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L379",
+      "weight": 1.0,
+      "source": "components_tweakspanel_tsx",
+      "target": "components_tweakspanel_tweakcolor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L393",
+      "weight": 1.0,
+      "source": "components_tweakspanel_tsx",
+      "target": "components_tweakspanel_tweakbuttonprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/TweaksPanel.tsx",
+      "source_location": "L399",
+      "weight": 1.0,
+      "source": "components_tweakspanel_tsx",
+      "target": "components_tweakspanel_tweakbutton",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/BulkFeedingModal.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_bulkfeedingmodal_tsx",
+      "target": "components_bulkfeedingmodal_props",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/BulkFeedingModal.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "components_bulkfeedingmodal_tsx",
+      "target": "components_bulkfeedingmodal_tolocaldatestr",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/BulkFeedingModal.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "components_bulkfeedingmodal_tsx",
+      "target": "components_bulkfeedingmodal_bulkfeedingmodal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "components/BulkFeedingModal.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "components_bulkfeedingmodal_bulkfeedingmodal",
+      "target": "components_bulkfeedingmodal_tolocaldatestr",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/PurchaseModal.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_purchasemodal_tsx",
+      "target": "components_purchasemodal_props",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/PurchaseModal.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "components_purchasemodal_tsx",
+      "target": "components_purchasemodal_purchasemodal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/FeedingList.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_feedinglist_tsx",
+      "target": "lib_types_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/FeedingList.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_feedinglist_tsx",
+      "target": "lib_types_feeding",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/FeedingList.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_feedinglist_tsx",
+      "target": "lib_types_food_type_labels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/FeedingList.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "components_feedinglist_tsx",
+      "target": "components_feedinglist_props",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/FeedingList.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "components_feedinglist_tsx",
+      "target": "components_feedinglist_formattime",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/FeedingList.tsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "components_feedinglist_tsx",
+      "target": "components_feedinglist_foodemoji",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/FeedingList.tsx",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "components_feedinglist_tsx",
+      "target": "components_feedinglist_iconbtn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/FeedingList.tsx",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "components_feedinglist_tsx",
+      "target": "components_feedinglist_feedinglist",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/DryProgress.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_dryprogress_tsx",
+      "target": "lib_hooks_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/DryProgress.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_dryprogress_tsx",
+      "target": "lib_hooks_usecountup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/DryProgress.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_dryprogress_tsx",
+      "target": "components_dryprogress_props",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/DryProgress.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "components_dryprogress_tsx",
+      "target": "components_dryprogress_lbl",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/DryProgress.tsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "components_dryprogress_tsx",
+      "target": "components_dryprogress_quickbtn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/DryProgress.tsx",
+      "source_location": "L79",
+      "weight": 1.0,
+      "source": "components_dryprogress_tsx",
+      "target": "components_dryprogress_dryprogress",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/DryProgress.tsx",
+      "source_location": "L84",
+      "weight": 1.0,
+      "source": "components_dryprogress_dryprogress",
+      "target": "lib_hooks_usecountup"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/OrbLayer.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_orblayer_tsx",
+      "target": "components_orblayer_orblayerprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/OrbLayer.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "components_orblayer_tsx",
+      "target": "components_orblayer_orblayer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/PurchaseHistory.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_purchasehistory_tsx",
+      "target": "lib_types_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/PurchaseHistory.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_purchasehistory_tsx",
+      "target": "lib_types_purchase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/PurchaseHistory.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_purchasehistory_tsx",
+      "target": "components_purchasehistory_formatdate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/PurchaseHistory.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "components_purchasehistory_tsx",
+      "target": "components_purchasehistory_purchasehistory",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/SettingsModal.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_settingsmodal_tsx",
+      "target": "lib_types_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/SettingsModal.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_settingsmodal_tsx",
+      "target": "lib_types_settings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/SettingsModal.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_settingsmodal_tsx",
+      "target": "lib_push_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/SettingsModal.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_settingsmodal_tsx",
+      "target": "lib_push_resubscribepush",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/SettingsModal.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "components_settingsmodal_tsx",
+      "target": "components_settingsmodal_props",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/SettingsModal.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "components_settingsmodal_tsx",
+      "target": "components_settingsmodal_settingsmodal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/push.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "lib_push_ts",
+      "target": "lib_push_registerpush",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/push.ts",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "lib_push_ts",
+      "target": "lib_push_resubscribepush",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/push.ts",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "lib_push_resubscribepush",
+      "target": "lib_push_registerpush",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/webpush.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "lib_webpush_ts",
+      "target": "lib_supabase_ts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/webpush.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "lib_webpush_ts",
+      "target": "lib_supabase_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/webpush.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "lib_webpush_ts",
+      "target": "lib_webpush_getwebpush",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/webpush.ts",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "lib_webpush_ts",
+      "target": "lib_webpush_sendpushtoall",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/webpush.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "lib_webpush_sendpushtoall",
+      "target": "lib_webpush_getwebpush",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/types.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "lib_types_ts",
+      "target": "lib_types_foodtype",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/types.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "lib_types_ts",
+      "target": "lib_types_feeding",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/types.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "lib_types_ts",
+      "target": "lib_types_settings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/types.ts",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "lib_types_ts",
+      "target": "lib_types_food_type_labels",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/types.ts",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "lib_types_ts",
+      "target": "lib_types_purchase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/types.ts",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "lib_types_ts",
+      "target": "lib_types_stockinfo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/supabase.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "lib_supabase_ts",
+      "target": "lib_supabase_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/hooks.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "lib_hooks_ts",
+      "target": "lib_hooks_usecountup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/auth.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "lib_auth_ts",
+      "target": "lib_auth_checkpassword",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/auth.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "lib_auth_ts",
+      "target": "lib_auth_checkbearer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/auth.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "lib_auth_checkbearer",
+      "target": "lib_auth_checkpassword",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "middleware.ts",
+      "source": "middleware",
+      "target": "LoginPage"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/dashboard/page.tsx",
+      "source": "DashboardPage",
+      "target": "api_feedings"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/dashboard/page.tsx",
+      "source": "DashboardPage",
+      "target": "api_settings"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/dashboard/page.tsx",
+      "source": "DashboardPage",
+      "target": "api_stock"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/dashboard/page.tsx",
+      "source": "DashboardPage",
+      "target": "api_auth"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/login/page.tsx",
+      "source": "LoginPage",
+      "target": "api_auth"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/api/settings/route.ts",
+      "source": "api_settings",
+      "target": "db_settings"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/api/purchases/route.ts",
+      "source": "api_purchases",
+      "target": "db_purchases"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/api/feedings/route.ts",
+      "source": "api_feedings",
+      "target": "db_feedings"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/api/feedings/bulk/route.ts",
+      "source": "api_feedings_bulk",
+      "target": "db_feedings"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/api/feedings/[id]/route.ts",
+      "source": "api_feedings_id",
+      "target": "db_feedings"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/api/water/route.ts",
+      "source": "api_water",
+      "target": "db_settings"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/api/status/route.ts",
+      "source": "api_status",
+      "target": "db_feedings"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/api/status/route.ts",
+      "source": "api_status",
+      "target": "db_settings"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/api/status/route.ts",
+      "source": "api_status",
+      "target": "db_purchases"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "app/api/stock/route.ts",
+      "source": "api_stock",
+      "target": "api_status"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "app/api/cron/check-feeding/route.ts",
+      "source": "cron_check_feeding",
+      "target": "api_status"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/api/push/subscribe/route.ts",
+      "source": "api_push_subscribe",
+      "target": "db_push_subscriptions"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/api/stock/route.ts",
+      "source": "api_stock",
+      "target": "db_purchases"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/api/stock/route.ts",
+      "source": "api_stock",
+      "target": "db_feedings"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/api/stock/route.ts",
+      "source": "api_stock",
+      "target": "db_settings"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "app/api/cron/check-stock/route.ts",
+      "source": "cron_check_stock",
+      "target": "api_stock"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/api/cron/check-stock/route.ts",
+      "source": "cron_check_stock",
+      "target": "db_purchases"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/api/cron/check-stock/route.ts",
+      "source": "cron_check_stock",
+      "target": "db_feedings"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/api/cron/check-stock/route.ts",
+      "source": "cron_check_stock",
+      "target": "db_settings"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/api/cron/check-feeding/route.ts",
+      "source": "cron_check_feeding",
+      "target": "db_feedings"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/HistoryTab.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "HistoryTab",
+      "target": "Feeding_type"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/FeedingForm.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "FeedingForm",
+      "target": "Feeding_type"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/FeedingList.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "FeedingList",
+      "target": "FeedingForm"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "components/BulkFeedingModal.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "BulkFeedingModal",
+      "target": "FeedingForm"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/StockWidget.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "StockWidget",
+      "target": "StockInfo_type"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/StockWidget.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "StockWidget",
+      "target": "useCountUp"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/SettingsTab.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "SettingsTab",
+      "target": "Settings_type"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/SettingsTab.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "SettingsTab",
+      "target": "resubscribePush"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "components/SettingsTab.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "SettingsTab",
+      "target": "SettingsModal"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/WaterWidget.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "WaterWidget",
+      "target": "Settings_type"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "components/PurchaseModal.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "PurchaseModal",
+      "target": "PurchaseHistory"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/FeedingList.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "FeedingList",
+      "target": "Feeding_type"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/DryProgress.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "DryProgress",
+      "target": "useCountUp"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/PurchaseHistory.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "PurchaseHistory",
+      "target": "Purchase_type"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/SettingsModal.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "SettingsModal",
+      "target": "Settings_type"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "components/SettingsModal.tsx",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "SettingsModal",
+      "target": "resubscribePush"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "public/sw.js",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "service_worker",
+      "target": "sendPushToAll"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/push.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "resubscribePush",
+      "target": "registerPush"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/webpush.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "sendPushToAll",
+      "target": "supabase_client"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "supabase/water_schema.sql",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "water_schema",
+      "target": "Settings_type"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "lib/auth.ts",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "checkBearer",
+      "target": "checkPassword"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "SETUP.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "setup_shortcuts",
+      "target": "checkBearer"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "rita_architecture",
+      "target": "push_notification_flow"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "public/favicon.jpg",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "favicon_cat_image",
+      "target": "rita_cat_mascot"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "feeding_management_flow",
+      "label": "Feeding Management Flow",
+      "nodes": [
+        "DashboardPage",
+        "api_feedings",
+        "api_feedings_id",
+        "api_feedings_bulk",
+        "db_feedings"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "app/dashboard/page.tsx"
+    },
+    {
+      "id": "auth_flow",
+      "label": "Authentication Flow",
+      "nodes": [
+        "middleware",
+        "LoginPage",
+        "api_auth"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "app/login/page.tsx"
+    },
+    {
+      "id": "stock_tracking_flow",
+      "label": "Stock Tracking Flow",
+      "nodes": [
+        "api_stock",
+        "cron_check_stock",
+        "db_purchases",
+        "db_feedings"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "app/api/stock/route.ts"
+    },
+    {
+      "id": "push_notification_system",
+      "label": "Push Notification System",
+      "nodes": [
+        "registerPush",
+        "resubscribePush",
+        "sendPushToAll",
+        "service_worker",
+        "push_notification_flow"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "lib/push.ts"
+    },
+    {
+      "id": "stock_management_flow",
+      "label": "Stock Management Flow",
+      "nodes": [
+        "StockWidget",
+        "PurchaseModal",
+        "PurchaseHistory",
+        "StockInfo_type"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "components/StockWidget.tsx"
+    },
+    {
+      "id": "settings_ui",
+      "label": "Settings UI Elements",
+      "nodes": [
+        "SettingsTab",
+        "SettingsModal",
+        "Settings_type"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "components/SettingsTab.tsx"
+    }
+  ],
+  "built_at_commit": "059c9defe0b7c5336cb200a6cb90eb1838eba6ec"
+}
