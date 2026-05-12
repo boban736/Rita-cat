@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import type { Feeding } from "@/lib/types";
 import { FOOD_TYPE_LABELS } from "@/lib/types";
+import PurchaseHistory from "@/components/PurchaseHistory";
 import { format, subDays } from "date-fns";
 import { ru } from "date-fns/locale";
 
@@ -56,7 +57,9 @@ export default function HistoryTab() {
     <div style={{
       padding: "20px 14px calc(90px + env(safe-area-inset-bottom, 0px))",
     }}>
-      <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: 1.3, textTransform: "uppercase", color: "var(--text3)", marginBottom: 14 }}>
+      <PurchaseHistory />
+
+      <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: 1.3, textTransform: "uppercase", color: "var(--text3)", marginBottom: 14, marginTop: 18 }}>
         История кормлений
       </div>
 
