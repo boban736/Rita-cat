@@ -12,12 +12,13 @@ import WaterWidget from "@/components/WaterWidget";
 import PurchaseHistory from "@/components/PurchaseHistory";
 import HistoryTab from "@/components/HistoryTab";
 import SettingsTab from "@/components/SettingsTab";
+import HealthTab from "@/components/HealthTab";
 import { format, addDays, subDays } from "date-fns";
 import { ru } from "date-fns/locale";
 import { useTweaks, TweaksPanel, TweakSection, TweakToggle, TweakSlider } from "@/components/TweaksPanel";
 import { OrbLayer } from "@/components/OrbLayer";
 
-type Tab = "today" | "history" | "settings";
+type Tab = "today" | "history" | "health" | "settings";
 
 function toDateStr(d: Date) {
   return format(d, "yyyy-MM-dd");
@@ -102,6 +103,7 @@ function Stepper({ value, onChange }: { value: number; onChange: (v: number) => 
 const TABS = [
   { id: "today" as Tab, icon: "🐾", label: "Сегодня" },
   { id: "history" as Tab, icon: "📋", label: "История" },
+  { id: "health" as Tab, icon: "💊", label: "Здоровье" },
   { id: "settings" as Tab, icon: "⚙️", label: "Настройки" },
 ];
 
@@ -435,6 +437,7 @@ export default function DashboardPage() {
       )}
 
       {tab === "history" && <HistoryTab />}
+      {tab === "health" && <HealthTab />}
       {tab === "settings" && settings && <SettingsTab settings={settings} onSaved={(s) => setSettings(s)} />}
 
       {/* ── Bottom tab bar ── */}

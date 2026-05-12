@@ -76,8 +76,8 @@ export default function PurchaseHistory() {
             purchases.map((p, i) => (
               <div key={p.id} style={{
                 display: "grid",
-                gridTemplateColumns: "1fr auto",
-                gap: 14,
+                gridTemplateColumns: "1fr auto auto",
+                gap: 12,
                 fontSize: 13,
                 color: "var(--text2)",
                 padding: "7px 0",
@@ -86,6 +86,9 @@ export default function PurchaseHistory() {
               }}>
                 <span>{formatDate(p.purchased_at)}</span>
                 <span>{p.amount_grams} г</span>
+                {p.price > 0 && (
+                  <span style={{ color: "var(--text3)" }}>{p.price} ₽</span>
+                )}
               </div>
             ))
           )}

@@ -13,9 +13,9 @@ export async function GET() {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const { data, error } = await supabase
-    .from("purchases")
+    .from("procedures")
     .select("*")
-    .order("purchased_at", { ascending: false });
+    .order("performed_at", { ascending: false });
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
   return NextResponse.json(data);
@@ -26,15 +26,19 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const body = await request.json();
-  const amount_grams = Number(body.amount_grams);
-  const price = Number(body.price) || 0;
+  const title = String(body.title ?? "").trim();
 
-  if (!amount_grams || amount_grams <= 0)
-    return NextResponse.json({ error: "Укажи количество грамм" }, { status: 400 });
+  if (!title)
+    return NextResponse.json({ error: "Укажи название" }, { status: 400 });
 
   const { data, error } = await supabase
-    .from("purchases")
-    .insert({ amount_grams, price })
+    .from("procedures")
+    .insert({
+      title,
+      performed_at: body.performed_at ?? new Date().toISOString(),
+      description: body.description ?? null,
+      cost: Number(body.cost) || 0,
+    })
     .select()
     .single();
 

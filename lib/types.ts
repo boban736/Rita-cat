@@ -25,6 +25,7 @@ export interface Purchase {
   id: string;
   purchased_at: string;
   amount_grams: number;
+  price: number;
 }
 
 export interface StockInfo {
@@ -32,4 +33,20 @@ export interface StockInfo {
   total_consumed: number;
   remaining_grams: number;
   days_left: number;
+}
+
+export interface Procedure {
+  id: string;
+  performed_at: string;
+  title: string;
+  description: string | null;
+  cost: number;
+  created_at: string;
+}
+
+export interface MonthlySpending {
+  month: string;
+  total: number;
+  food: number;
+  procedures: number;
 }
