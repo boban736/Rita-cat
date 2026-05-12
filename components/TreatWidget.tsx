@@ -6,7 +6,7 @@ interface Props {
   onAdded: () => void;
 }
 
-const PRESETS = [1, 2, 3];
+const PRESETS = [0.3, 0.5, 1];
 
 export default function TreatWidget({ onAdded }: Props) {
   const [loading, setLoading] = useState<number | null>(null);
