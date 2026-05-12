@@ -93,7 +93,7 @@ export default function HistoryTab() {
                   }}>
                     <span style={{ fontSize: 18 }}>🥣</span>
                     <div style={{ flex: 1, fontSize: 13.5, fontWeight: 700 }}>
-                      {FOOD_TYPE_LABELS[f.food_type]} · {f.amount_grams} г
+                      {FOOD_TYPE_LABELS[f.food_type]} · {f.amount_grams}{f.food_type === "treat" ? " шт." : " г"}
                     </div>
                     <div style={{ fontSize: 12, color: "var(--text3)", fontWeight: 600 }}>
                       {formatTime(f.fed_at)}

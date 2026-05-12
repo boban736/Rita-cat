@@ -1,15 +1,17 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { supabase } from "@/lib/supabase";
-import { SESSION_COOKIE } from "@/lib/auth";
+import { checkBearer, SESSION_COOKIE } from "@/lib/auth";
 
-async function isAuthorized() {
+async function isAuthorized(request: Request): Promise<boolean> {
+  const authHeader = request.headers.get("Authorization");
+  if (authHeader) return checkBearer(authHeader);
   const jar = await cookies();
   return jar.get(SESSION_COOKIE)?.value === process.env.APP_PASSWORD;
 }
 
-export async function GET() {
-  if (!(await isAuthorized()))
+export async function GET(request: Request) {
+  if (!(await isAuthorized(request)))
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const { data, error } = await supabase
@@ -22,7 +24,7 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  if (!(await isAuthorized()))
+  if (!(await isAuthorized(request)))
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const body = await request.json();
