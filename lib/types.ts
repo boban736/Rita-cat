@@ -35,12 +35,15 @@ export interface StockInfo {
   days_left: number;
 }
 
+export type ProcedureCategory = "health" | "supply";
+
 export interface Procedure {
   id: string;
   performed_at: string;
   title: string;
   description: string | null;
   cost: number;
+  category: ProcedureCategory;
   created_at: string;
 }
 
@@ -48,5 +51,6 @@ export interface MonthlySpending {
   month: string;
   total: number;
   food: number;
-  procedures: number;
+  health: number;
+  supply: number;
 }

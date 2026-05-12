@@ -64,7 +64,7 @@ export default function SpendingStats() {
 
       <div style={{
         overflow: "hidden",
-        maxHeight: open ? 400 : 0,
+        maxHeight: open ? 500 : 0,
         transition: "max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
       }}>
         <div style={{ padding: "0 18px 14px" }}>
@@ -74,7 +74,7 @@ export default function SpendingStats() {
             </div>
           ) : !hasData ? (
             <div style={{ textAlign: "center", fontSize: 13, color: "var(--text3)", padding: "12px 0" }}>
-              Данных нет — добавь цены к закупкам
+              Данных нет — добавь цены к закупкам или записям
             </div>
           ) : (
             data.filter((m) => m.total > 0).map((m, i) => (
@@ -90,9 +90,10 @@ export default function SpendingStats() {
                     {m.total} MDL
                   </span>
                 </div>
-                <div style={{ display: "flex", gap: 12, fontSize: 12, color: "var(--text3)" }}>
-                  {m.food > 0 && <span>Корм: {m.food} MDL</span>}
-                  {m.procedures > 0 && <span>Процедуры: {m.procedures} MDL</span>}
+                <div style={{ display: "flex", gap: 12, fontSize: 12, color: "var(--text3)", flexWrap: "wrap" }}>
+                  {m.food > 0 && <span>🥣 Корм: {m.food} MDL</span>}
+                  {m.health > 0 && <span>💊 Здоровье: {m.health} MDL</span>}
+                  {m.supply > 0 && <span>🧸 Вещи: {m.supply} MDL</span>}
                 </div>
               </div>
             ))

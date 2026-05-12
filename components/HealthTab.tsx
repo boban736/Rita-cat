@@ -1,10 +1,15 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import type { Procedure } from "@/lib/types";
+import type { Procedure, ProcedureCategory } from "@/lib/types";
 import ProcedureList from "@/components/ProcedureList";
 import ProcedureForm from "@/components/ProcedureForm";
 import SpendingStats from "@/components/SpendingStats";
+
+const SECTIONS: { category: ProcedureCategory; label: string; emoji: string }[] = [
+  { category: "health", label: "Здоровье", emoji: "💊" },
+  { category: "supply", label: "Вещи", emoji: "🧸" },
+];
 
 export default function HealthTab() {
   const [procedures, setProcedures] = useState<Procedure[]>([]);
@@ -31,50 +36,56 @@ export default function HealthTab() {
       padding: "18px 14px calc(90px + env(safe-area-inset-bottom, 0px))",
       animation: "fadeIn 0.3s ease both",
     }}>
-      {/* Procedures section */}
-      <div style={{
-        background: "var(--surface)",
-        borderRadius: 18,
-        boxShadow: "0 2px 14px var(--sh)",
-        padding: "16px 18px",
-      }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <span style={{ fontSize: 20 }}>💊</span>
-            <span style={{ fontWeight: 800, fontSize: 15.5, color: "var(--text)" }}>Здоровье</span>
-          </div>
-          <button
-            onClick={() => setShowForm(true)}
+      {SECTIONS.map(({ category, label, emoji }) => {
+        const items = procedures.filter((p) => (p.category ?? "health") === category);
+        return (
+          <div
+            key={category}
             style={{
-              background: "var(--green)",
-              border: "none",
-              borderRadius: 12,
-              width: 36,
-              height: 36,
-              cursor: "pointer",
-              color: "var(--accent-contrast)",
-              fontSize: 22,
-              fontWeight: 300,
-              fontFamily: "inherit",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
+              background: "var(--surface)",
+              borderRadius: 18,
+              boxShadow: "0 2px 14px var(--sh)",
+              padding: "16px 18px",
             }}
           >
-            +
-          </button>
-        </div>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <span style={{ fontSize: 20 }}>{emoji}</span>
+                <span style={{ fontWeight: 800, fontSize: 15.5, color: "var(--text)" }}>{label}</span>
+              </div>
+              <button
+                onClick={() => setShowForm(true)}
+                style={{
+                  background: "var(--green)",
+                  border: "none",
+                  borderRadius: 12,
+                  width: 36,
+                  height: 36,
+                  cursor: "pointer",
+                  color: "var(--accent-contrast)",
+                  fontSize: 22,
+                  fontWeight: 300,
+                  fontFamily: "inherit",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                +
+              </button>
+            </div>
 
-        {loading ? (
-          <div style={{ textAlign: "center", color: "var(--text3)", fontSize: 13, padding: "24px 0" }}>
-            Загружаем...
+            {loading ? (
+              <div style={{ textAlign: "center", color: "var(--text3)", fontSize: 13, padding: "16px 0" }}>
+                Загружаем...
+              </div>
+            ) : (
+              <ProcedureList procedures={items} onDeleted={load} />
+            )}
           </div>
-        ) : (
-          <ProcedureList procedures={procedures} onDeleted={load} />
-        )}
-      </div>
+        );
+      })}
 
-      {/* Spending stats */}
       <SpendingStats />
 
       {showForm && (

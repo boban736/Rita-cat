@@ -1,6 +1,11 @@
 "use client";
 
-import type { Procedure } from "@/lib/types";
+import type { Procedure, ProcedureCategory } from "@/lib/types";
+
+const CATEGORY_EMOJI: Record<ProcedureCategory, string> = {
+  health: "💊",
+  supply: "🧸",
+};
 
 interface Props {
   procedures: Procedure[];
@@ -46,7 +51,8 @@ export default function ProcedureList({ procedures, onDeleted }: Props) {
           }}
         >
           <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{ fontWeight: 700, fontSize: 14, color: "var(--text)", marginBottom: 2 }}>
+            <div style={{ fontWeight: 700, fontSize: 14, color: "var(--text)", marginBottom: 2, display: "flex", alignItems: "center", gap: 6 }}>
+              <span style={{ fontSize: 16 }}>{CATEGORY_EMOJI[p.category] ?? "💊"}</span>
               {p.title}
             </div>
             <div style={{ fontSize: 12, color: "var(--text3)" }}>
