@@ -317,9 +317,6 @@ export default function DashboardPage() {
               />
             )}
 
-            {/* Purchase history accordion */}
-            <PurchaseHistory />
-
             {/* Water */}
             {settings && (
               <WaterWidget settings={settings} onChanged={(s) => setSettings(s)} />
