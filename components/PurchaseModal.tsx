@@ -61,7 +61,7 @@ export default function PurchaseModal({ onSaved, onClose }: Props) {
 
           <div>
             <label className="block text-sm font-medium text-[var(--text2)] mb-1">
-              Цена (₽)
+              Цена (MDL)
             </label>
             <input
               type="number"

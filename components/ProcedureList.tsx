@@ -61,7 +61,7 @@ export default function ProcedureList({ procedures, onDeleted }: Props) {
           <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 6, flexShrink: 0 }}>
             {p.cost > 0 && (
               <span style={{ fontSize: 13, fontWeight: 700, color: "var(--green)" }}>
-                {p.cost} ₽
+                {p.cost} MDL
               </span>
             )}
             <button

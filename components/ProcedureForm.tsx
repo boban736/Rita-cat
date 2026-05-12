@@ -84,7 +84,7 @@ export default function ProcedureForm({ onSaved, onClose }: Props) {
 
           <div>
             <label className="block text-sm font-medium text-[var(--text2)] mb-1">
-              Стоимость (₽)
+              Стоимость (MDL)
             </label>
             <input
               type="number"

@@ -87,7 +87,7 @@ export default function PurchaseHistory() {
                 <span>{formatDate(p.purchased_at)}</span>
                 <span>{p.amount_grams} г</span>
                 {p.price > 0 && (
-                  <span style={{ color: "var(--text3)" }}>{p.price} ₽</span>
+                  <span style={{ color: "var(--text3)" }}>{p.price} MDL</span>
                 )}
               </div>
             ))

@@ -87,12 +87,12 @@ export default function SpendingStats() {
                     {formatMonth(m.month)}
                   </span>
                   <span style={{ fontSize: 14, fontWeight: 800, color: "var(--green)" }}>
-                    {m.total} ₽
+                    {m.total} MDL
                   </span>
                 </div>
                 <div style={{ display: "flex", gap: 12, fontSize: 12, color: "var(--text3)" }}>
-                  {m.food > 0 && <span>Корм: {m.food} ₽</span>}
-                  {m.procedures > 0 && <span>Процедуры: {m.procedures} ₽</span>}
+                  {m.food > 0 && <span>Корм: {m.food} MDL</span>}
+                  {m.procedures > 0 && <span>Процедуры: {m.procedures} MDL</span>}
                 </div>
               </div>
             ))
