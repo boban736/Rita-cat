@@ -84,16 +84,17 @@ export default function FeedingForm({ feeding, onSaved, onCancel }: Props) {
 
       <div>
         <label className="block text-sm font-medium text-[var(--text2)] mb-1">
-          Количество (г)
+          {foodType === "treat" ? "Количество (шт.)" : "Количество (г)"}
         </label>
         <input
           type="number"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
-          min="1"
+          min="0.1"
           max="500"
+          step={foodType === "treat" ? "0.1" : "1"}
           className="w-full bg-[var(--field)] border border-[var(--border)] rounded-xl px-4 py-3 text-sm text-[var(--text)] placeholder:text-[var(--text3)] focus:outline-none focus:ring-2 focus:ring-[var(--green)]"
-          placeholder="30"
+          placeholder={foodType === "treat" ? "1" : "30"}
           required
           autoFocus={!isEdit}
         />
@@ -109,7 +110,7 @@ export default function FeedingForm({ feeding, onSaved, onCancel }: Props) {
                   : "bg-[var(--field)] border-[var(--border)] text-[var(--text3)] hover:border-[var(--green)]"
               }`}
             >
-              {g}г
+              {g}{foodType === "treat" ? "шт." : "г"}
             </button>
           ))}
         </div>

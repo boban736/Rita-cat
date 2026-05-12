@@ -1,40 +1,46 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { supabase } from "@/lib/supabase";
-import { SESSION_COOKIE } from "@/lib/auth";
+import { checkBearer, SESSION_COOKIE } from "@/lib/auth";
 
-async function isAuthorized() {
+async function isAuthorized(request: Request): Promise<boolean> {
+  const authHeader = request.headers.get("Authorization");
+  if (authHeader) return checkBearer(authHeader);
   const jar = await cookies();
   return jar.get(SESSION_COOKIE)?.value === process.env.APP_PASSWORD;
 }
 
-export async function GET() {
-  if (!(await isAuthorized()))
+export async function GET(request: Request) {
+  if (!(await isAuthorized(request)))
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const { data, error } = await supabase
-    .from("purchases")
+    .from("procedures")
     .select("*")
-    .order("purchased_at", { ascending: false });
+    .order("performed_at", { ascending: false });
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
   return NextResponse.json(data);
 }
 
 export async function POST(request: Request) {
-  if (!(await isAuthorized()))
+  if (!(await isAuthorized(request)))
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const body = await request.json();
-  const amount_grams = Number(body.amount_grams);
-  const price = Number(body.price) || 0;
+  const title = String(body.title ?? "").trim();
 
-  if (!amount_grams || amount_grams <= 0)
-    return NextResponse.json({ error: "Укажи количество грамм" }, { status: 400 });
+  if (!title)
+    return NextResponse.json({ error: "Укажи название" }, { status: 400 });
 
   const { data, error } = await supabase
-    .from("purchases")
-    .insert({ amount_grams, price })
+    .from("procedures")
+    .insert({
+      title,
+      performed_at: body.performed_at ?? new Date().toISOString(),
+      description: body.description ?? null,
+      cost: Number(body.cost) || 0,
+    })
     .select()
     .single();
 

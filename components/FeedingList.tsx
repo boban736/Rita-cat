@@ -95,7 +95,7 @@ export default function FeedingList({ feedings, onChanged, onFeedingSaved }: Pro
               <span style={{ fontSize: 22, marginRight: 13 }}>{foodEmoji(f.food_type)}</span>
               <div style={{ flex: 1 }}>
                 <div style={{ fontWeight: 800, fontSize: 14.5 }}>
-                  {FOOD_TYPE_LABELS[f.food_type]} · {f.amount_grams} г
+                  {FOOD_TYPE_LABELS[f.food_type]} · {f.amount_grams}{f.food_type === "treat" ? " шт." : " г"}
                 </div>
                 <div style={{ fontSize: 12, color: "var(--text3)", marginTop: 2 }}>
                   {formatTime(f.fed_at)}

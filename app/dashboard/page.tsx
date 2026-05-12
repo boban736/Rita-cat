@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import type { Feeding, Settings, StockInfo } from "@/lib/types";
 import FeedingList from "@/components/FeedingList";
+import FeedingForm from "@/components/FeedingForm";
 import DryProgress from "@/components/DryProgress";
 import BulkFeedingModal from "@/components/BulkFeedingModal";
 import StockWidget from "@/components/StockWidget";
@@ -12,12 +13,14 @@ import WaterWidget from "@/components/WaterWidget";
 import PurchaseHistory from "@/components/PurchaseHistory";
 import HistoryTab from "@/components/HistoryTab";
 import SettingsTab from "@/components/SettingsTab";
+import HealthTab from "@/components/HealthTab";
+import TreatWidget from "@/components/TreatWidget";
 import { format, addDays, subDays } from "date-fns";
 import { ru } from "date-fns/locale";
 import { useTweaks, TweaksPanel, TweakSection, TweakToggle, TweakSlider } from "@/components/TweaksPanel";
 import { OrbLayer } from "@/components/OrbLayer";
 
-type Tab = "today" | "history" | "settings";
+type Tab = "today" | "history" | "health" | "settings";
 
 function toDateStr(d: Date) {
   return format(d, "yyyy-MM-dd");
@@ -102,6 +105,7 @@ function Stepper({ value, onChange }: { value: number; onChange: (v: number) => 
 const TABS = [
   { id: "today" as Tab, icon: "🐾", label: "Сегодня" },
   { id: "history" as Tab, icon: "📋", label: "История" },
+  { id: "health" as Tab, icon: "💊", label: "Здоровье" },
   { id: "settings" as Tab, icon: "⚙️", label: "Настройки" },
 ];
 
@@ -115,6 +119,7 @@ export default function DashboardPage() {
   const [loading, setLoading] = useState(true);
   const [showBulk, setShowBulk] = useState(false);
   const [showPurchase, setShowPurchase] = useState(false);
+  const [showAddFeeding, setShowAddFeeding] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
   const [burst, setBurst] = useState<{ x: number; y: number } | null>(null);
   const [justFed, setJustFed] = useState(false);
@@ -301,6 +306,9 @@ export default function DashboardPage() {
               <DryProgress eaten={dryEaten} limit={settings.dry_limit_grams} justFed={justFed} onQuickFeed={handleQuickFeed} />
             )}
 
+            {/* Treat */}
+            {isToday && <TreatWidget onAdded={loadData} />}
+
             {/* Stock */}
             {stock && (
               <StockWidget
@@ -308,9 +316,6 @@ export default function DashboardPage() {
                 onPurchase={(e) => { triggerBurst(e); setShowPurchase(true); }}
               />
             )}
-
-            {/* Purchase history accordion */}
-            <PurchaseHistory />
 
             {/* Water */}
             {settings && (
@@ -421,6 +426,25 @@ export default function DashboardPage() {
                 <div style={{ fontSize: 10, fontWeight: 800, letterSpacing: 1.3, textTransform: "uppercase", color: "var(--text3)" }}>
                   Кормления · {feedings.length}
                 </div>
+                <button
+                  onClick={() => setShowAddFeeding(true)}
+                  style={{
+                    background: "var(--green)",
+                    border: "none",
+                    borderRadius: 10,
+                    width: 28,
+                    height: 28,
+                    cursor: "pointer",
+                    color: "var(--accent-contrast)",
+                    fontSize: 20,
+                    fontWeight: 300,
+                    fontFamily: "inherit",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    lineHeight: 1,
+                  }}
+                >+</button>
               </div>
               {loading ? (
                 <div style={{ textAlign: "center", color: "var(--text3)", fontSize: 13, padding: "24px 0" }}>
@@ -435,6 +459,7 @@ export default function DashboardPage() {
       )}
 
       {tab === "history" && <HistoryTab />}
+      {tab === "health" && <HealthTab />}
       {tab === "settings" && settings && <SettingsTab settings={settings} onSaved={(s) => setSettings(s)} />}
 
       {/* ── Bottom tab bar ── */}
@@ -484,6 +509,20 @@ export default function DashboardPage() {
       {/* ── Modals ── */}
       {showBulk && (
         <BulkFeedingModal onSaved={loadData} onClose={() => setShowBulk(false)} />
+      )}
+      {showAddFeeding && (
+        <div className="fixed inset-0 bg-[var(--overlay)] flex items-center justify-center z-50 px-4">
+          <div className="bg-[var(--surface)] border border-[var(--border)] rounded-2xl p-6 w-full max-w-sm shadow-xl">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-2xl">🐾</span>
+              <h2 className="text-lg font-semibold text-[var(--text)]">Добавить кормление</h2>
+            </div>
+            <FeedingForm
+              onSaved={() => { setShowAddFeeding(false); loadData(); showToast("Сохранено ✓"); }}
+              onCancel={() => setShowAddFeeding(false)}
+            />
+          </div>
+        </div>
       )}
       {showPurchase && (
         <PurchaseModal

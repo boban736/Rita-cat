@@ -9,6 +9,7 @@ interface Props {
 
 export default function PurchaseModal({ onSaved, onClose }: Props) {
   const [grams, setGrams] = useState("");
+  const [price, setPrice] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -20,7 +21,7 @@ export default function PurchaseModal({ onSaved, onClose }: Props) {
     const res = await fetch("/api/purchases", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ amount_grams: Number(grams) }),
+      body: JSON.stringify({ amount_grams: Number(grams), price: Number(price) || 0 }),
     });
 
     if (res.ok) {
@@ -55,6 +56,21 @@ export default function PurchaseModal({ onSaved, onClose }: Props) {
               className="w-full bg-[var(--field)] border border-[var(--border)] rounded-xl px-4 py-3 text-sm text-[var(--text)] placeholder:text-[var(--text3)] focus:outline-none focus:ring-2 focus:ring-[var(--green)]"
               required
               autoFocus
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-[var(--text2)] mb-1">
+              Цена (MDL)
+            </label>
+            <input
+              type="number"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              min="0"
+              step="0.01"
+              placeholder="0"
+              className="w-full bg-[var(--field)] border border-[var(--border)] rounded-xl px-4 py-3 text-sm text-[var(--text)] placeholder:text-[var(--text3)] focus:outline-none focus:ring-2 focus:ring-[var(--green)]"
             />
           </div>
 

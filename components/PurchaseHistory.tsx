@@ -23,6 +23,11 @@ export default function PurchaseHistory() {
       .then((data: Purchase[]) => { setPurchases(data); setLoaded(true); });
   }, [open, loaded]);
 
+  async function handleDelete(id: string) {
+    const res = await fetch(`/api/purchases/${id}`, { method: "DELETE" });
+    if (res.ok) setPurchases((prev) => prev.filter((p) => p.id !== id));
+  }
+
   return (
     <div style={{
       background: "var(--surface)",
@@ -60,7 +65,7 @@ export default function PurchaseHistory() {
 
       <div style={{
         overflow: "hidden",
-        maxHeight: open ? 200 : 0,
+        maxHeight: open ? 300 : 0,
         transition: "max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
       }}>
         <div style={{ padding: "0 18px 12px" }}>
@@ -75,17 +80,34 @@ export default function PurchaseHistory() {
           ) : (
             purchases.map((p, i) => (
               <div key={p.id} style={{
-                display: "grid",
-                gridTemplateColumns: "1fr auto",
-                gap: 14,
+                display: "flex",
+                alignItems: "center",
+                gap: 10,
                 fontSize: 13,
                 color: "var(--text2)",
                 padding: "7px 0",
                 borderTop: i === 0 ? "1px solid var(--border)" : "1px solid var(--border)",
                 fontWeight: 600,
               }}>
-                <span>{formatDate(p.purchased_at)}</span>
+                <span style={{ flex: 1 }}>{formatDate(p.purchased_at)}</span>
                 <span>{p.amount_grams} г</span>
+                {p.price > 0 && (
+                  <span style={{ color: "var(--text3)" }}>{p.price} MDL</span>
+                )}
+                <button
+                  onClick={() => handleDelete(p.id)}
+                  style={{
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                    fontSize: 14,
+                    opacity: 0.4,
+                    padding: 2,
+                    lineHeight: 1,
+                    color: "var(--text)",
+                  }}
+                  title="Удалить"
+                >✕</button>
               </div>
             ))
           )}
