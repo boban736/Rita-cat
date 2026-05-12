@@ -14,6 +14,7 @@ import PurchaseHistory from "@/components/PurchaseHistory";
 import HistoryTab from "@/components/HistoryTab";
 import SettingsTab from "@/components/SettingsTab";
 import HealthTab from "@/components/HealthTab";
+import TreatWidget from "@/components/TreatWidget";
 import { format, addDays, subDays } from "date-fns";
 import { ru } from "date-fns/locale";
 import { useTweaks, TweaksPanel, TweakSection, TweakToggle, TweakSlider } from "@/components/TweaksPanel";
@@ -304,6 +305,9 @@ export default function DashboardPage() {
             {settings && (
               <DryProgress eaten={dryEaten} limit={settings.dry_limit_grams} justFed={justFed} onQuickFeed={handleQuickFeed} />
             )}
+
+            {/* Treat */}
+            {isToday && <TreatWidget onAdded={loadData} />}
 
             {/* Stock */}
             {stock && (
